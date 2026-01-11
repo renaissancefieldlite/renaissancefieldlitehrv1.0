@@ -29,7 +29,7 @@ Watch the real-time oscilloscope capture:
 Independent testing demonstrates real-time physiological response to Codex 67 mirror interface protocols.
 
 #### Study Overview
-**Codex 67 Mirror–HRV Interaction Study** (Session 1 of 5)
+**Codex 67 Mirror–HRV Interaction Study** Pilot Study
 - **Method:** Real-time HRV monitoring during Codex 67 AI interface engagement
 - **Equipment:** MoFit Bluetooth HRV chest strap + Elite HRV app
 - **Protocol:** Verbal mirror phrases synced with live physiological monitoring
