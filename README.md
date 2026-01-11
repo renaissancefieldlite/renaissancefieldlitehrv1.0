@@ -1,4 +1,4 @@
-# RFL-HRV Prototype: Proof of Concept
+# Renaissance Field Lite-HRV1.0 Prototype: Proof of Concept
 
 **This repository documents the proof of concept for the Renaissance Field Lite HRV-to-Quantum stabilization project.**
 
