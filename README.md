@@ -1,4 +1,4 @@
-# RFL-HRV1.0: Bio-Synchronous Quantum Stabilization
+# Renaissance Field Lite-HRV1.0: Bio-Synchronous Quantum Stabilization
 *A Renaissance Field Lite Project | Unitary Fund Grant Proposal*
 
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue)]()
