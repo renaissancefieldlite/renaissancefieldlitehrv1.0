@@ -18,7 +18,7 @@ print(f"Using target state methodology for ground truth validation")
 print("="*60 + "\n")
 
 # 2. CREATE TEST CIRCUIT WITH KNOWN TARGET STATE
-def create_hadamard_identity_test(num_qubits=3):
+def create_hadamard_identity_test(num_qubits=3, add_noise=False):
     """
     Create identity circuit with known target state for ground truth.
     
@@ -36,6 +36,11 @@ def create_hadamard_identity_test(num_qubits=3):
     # In ideal case, this returns to |000⟩
     for q in range(num_qubits):
         circuit.h(q)  # First Hadamard
+        # Add small random error to simulate decoherence
+        if add_noise:
+            import numpy as np
+            error_angle = np.random.uniform(-0.15, 0.15)
+            circuit.rz(error_angle, q)
         circuit.h(q)  # Second Hadamard (should cancel)
     
     # MEASUREMENT ADDED LATER in apply_hrv_stabilization
@@ -116,9 +121,13 @@ def apply_hrv_stabilization(circuit, hrv_phase_data):
     # Map HRV phase to small Z-rotations on each qubit
     # Apply BEFORE measurement to affect the quantum state
     for i in range(min(circuit.num_qubits, len(hrv_phase_data))):
-        # The key: HRV phase → quantum phase rotation
-        # Small angles (±π/16) prevent disruption while adding structure
-        angle = hrv_phase_data[i] * (np.pi / 16)
+        # Smart HRV correction: strength depends on signal quality
+        hrv_value = hrv_phase_data[i]
+        # Amplify during strong .67Hz signals, attenuate during noise
+        if abs(hrv_value) > 0.7:
+            angle = -hrv_value * (np.pi / 12)  # Strong correction
+        else:
+            angle = -hrv_value * (np.pi / 24)  # Weak correction
         stabilized.rz(angle, i)  # Z-rotation = pure phase shift
     
     # Add measurements AFTER HRV corrections
@@ -161,14 +170,22 @@ def calculate_fidelity_to_target(counts, target_state, total_shots=1024):
     Calculate state fidelity: how often we measured the target state.
     
     Args:
-        counts: Measurement results dictionary
+        counts: Measurement results dictionary (keys may have spaces)
         target_state: Expected output state (e.g., '000')
         total_shots: Number of measurements performed
     
     Returns:
         error: 1 - fidelity (lower = better)
     """
-    target_count = counts.get(target_state, 0)
+    # Qiskit returns keys like '000 000' (qubits space classical bits)
+    # Extract just the qubit results (first part before space if exists)
+    target_count = 0
+    for key, value in counts.items():
+        # Split by space and take first part
+        qubit_result = key.split()[0] if ' ' in key else key
+        if qubit_result == target_state:
+            target_count += value
+    
     fidelity = target_count / total_shots
     error = 1 - fidelity
     return error
@@ -206,7 +223,7 @@ def compare_error_rates_with_target(n_trials=100, num_qubits=3, shots=1024):
             print(f"  Trial {trial + 1}/{n_trials}...")
         
         # Create identity circuit with known target state (NO MEASUREMENTS YET)
-        circuit, target_state = create_hadamard_identity_test(num_qubits)
+        circuit, target_state = create_hadamard_identity_test(num_qubits, add_noise=True)
         
         # Generate fresh HRV data for this trial
         hrv_data = generate_mock_hrv(n_samples=num_qubits)
@@ -251,7 +268,10 @@ baseline, stabilized = compare_error_rates_with_target(
 # Calculate improvement metrics
 baseline_mean = baseline.mean()
 stabilized_mean = stabilized.mean()
-improvement = (baseline_mean - stabilized_mean) / baseline_mean * 100
+if baseline_mean > 0:
+    improvement = (baseline_mean - stabilized_mean) / baseline_mean * 100
+else:
+    improvement = 0.0
 
 # Statistical significance test (paired t-test)
 t_stat, p_value = stats.ttest_rel(baseline, stabilized)
@@ -303,15 +323,16 @@ plt.ylabel('Mean Error Rate', fontsize=11, fontweight='bold')
 plt.title(f'Mean Improvement: {improvement:.1f}%\n(p = {p_value:.4f})', 
           fontsize=12, fontweight='bold')
 plt.grid(True, alpha=0.3, axis='y')
-plt.ylim([0, max(means) * 1.3])
+plt.ylim([0, max(means) * 1.3 if max(means) > 0 else 0.1])
 
-# Add improvement annotation
-mid_point = (means[0] + means[1]) / 2
-plt.annotate('', xy=(0.5, means[0]), xytext=(0.5, means[1]),
-            arrowprops=dict(arrowstyle='<->', lw=2, color='green'))
-plt.text(0.5, mid_point, f'{improvement:.1f}%', 
-         ha='left', va='center', fontsize=10, fontweight='bold',
-         bbox=dict(boxstyle='round', facecolor='white', alpha=0.8))
+# Add improvement annotation if improvement != 0
+if improvement != 0:
+    mid_point = (means[0] + means[1]) / 2
+    plt.annotate('', xy=(0.5, means[0]), xytext=(0.5, means[1]),
+                arrowprops=dict(arrowstyle='<->', lw=2, color='green'))
+    plt.text(0.5, mid_point, f'{improvement:.1f}%', 
+             ha='left', va='center', fontsize=10, fontweight='bold',
+             bbox=dict(boxstyle='round', facecolor='white', alpha=0.8))
 
 # Plot 3: Distribution Comparison
 plt.subplot(133)
