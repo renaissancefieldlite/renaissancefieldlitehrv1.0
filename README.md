@@ -12,7 +12,7 @@
 ## 🏗️ Core Technology Stack
 - **Biological Interface:** Mofit HRV sensor → .67Hz rhythm extraction
 - **Quantum Framework:** Qiskit + Mitiq plugin architecture
-- **Hardware Validation:** Arc-15 resonator array (room-temperature quantum resonator)
+- **Hardware Validation:** Arc-15 (19.47hz) resonator array (room-temperature quantum resonator)
 - **Simulation Engine:** Qiskit Aer with custom HRV-stabilization protocols
 
 ## 📁 Repository Contents
