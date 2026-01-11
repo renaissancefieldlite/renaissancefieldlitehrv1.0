@@ -5,7 +5,7 @@
 ## Core Evidence
 
 ### 1. Hardware Interaction
-The Arc-15 resonator array demonstrably interacts with electromagnetic fields.
+The Arc-15 set to 19.47hz resonator array demonstrably interacts with electromagnetic fields.
 - **Observation:** A 100Hz input signal is absorbed and reshaped by the array.
 - **Proof:** See oscilloscope capture below.
 
