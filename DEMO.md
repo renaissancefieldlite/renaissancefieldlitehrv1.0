@@ -11,10 +11,10 @@ The Arc-15 resonator array (tuned to 19.47Hz) demonstrably interacts with electr
 #### Signal Processing Demonstration
 A 100Hz input signal is absorbed and reshaped by the Arc-15 array.
 
-![Clean 100Hz Input Signal](./images/arc15-1.jpg)
+![Clean 100Hz Input Signal](./images/arc15-1.png)
 *Baseline: Clean 100Hz input signal*
 
-![Arc-15 Processed Output](./images/arc15-2.jpg)
+![Arc-15 Processed Output](./images/arc15-2.png)
 *Result: Arc-15 processed signal showing amplitude absorption and phase shift*
 
 #### Live Test Video
