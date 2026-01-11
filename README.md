@@ -21,7 +21,7 @@ A 100Hz input signal is absorbed and reshaped by the Arc-15 array.
 Watch the real-time oscilloscope capture:
 
 <a href="./images/IMG_3376.MOV" target="_blank">
-  <img src=".images/IMG_3376.MOV" width="400" style="border: 2px solid #00ffcc; border-radius: 8px;">
+  <img src="./images/arc15-1.PNG" width="400" style="border: 2px solid #00ffcc; border-radius: 8px;">
   <br>
   ▶️ Click to Watch Live Test Video
 </a>
