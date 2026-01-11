@@ -25,7 +25,7 @@
 ## 🚀 Quick Start
 ```bash
 # Clone repository
-git clone https://github.com/renaissancefieldlite/renaissancefieldlitehrv1.0.git
+git clone https://github.com/renaissancefieldlite/renaissancefieldlitehrv1.0
 cd renaissancefieldlitehrv1.0
 
 # Install dependencies
