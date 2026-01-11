@@ -38,7 +38,8 @@ def create_hadamard_identity_test(num_qubits=3):
         circuit.h(q)  # First Hadamard
         circuit.h(q)  # Second Hadamard (should cancel)
     
-    circuit.measure_all()
+    # MEASUREMENT ADDED LATER in apply_hrv_stabilization
+    # circuit.measure_all()  # REMOVED - will be added after HRV correction
     
     # Target state is all zeros (what we should measure)
     target_state = '0' * num_qubits
@@ -80,13 +81,15 @@ def create_grover_diffusion_test(num_qubits=3):
         for q in range(num_qubits):
             circuit.h(q)
     
-    circuit.measure_all()
+    # MEASUREMENT ADDED LATER
+    # circuit.measure_all()  # REMOVED
+    
     target_state = '0' * num_qubits
     
     return circuit, target_state
 
 
-# 3. HRV-STABILIZATION FUNCTION: The core innovation
+# 3. HRV-STABILIZATION FUNCTION: The core innovation (FIXED VERSION)
 def apply_hrv_stabilization(circuit, hrv_phase_data):
     """
     Core innovation: Map biological HRV rhythms to quantum phase corrections.
@@ -98,24 +101,28 @@ def apply_hrv_stabilization(circuit, hrv_phase_data):
     Implementation: Convert HRV phase data to small Z-rotations (±π/16)
     applied to each qubit, creating a "bio-lock" on the quantum state.
     
+    CRITICAL FIX: HRV Z-rotations must be applied BEFORE measurement.
+    
     Args:
-        circuit: QuantumCircuit to stabilize
+        circuit: QuantumCircuit to stabilize (without measurements)
         hrv_phase_data: Array of HRV-derived phase values
     
     Returns:
         Stabilized QuantumCircuit with HRV-modulated phase corrections
+        and measurements added at the end.
     """
     stabilized = circuit.copy()
     
     # Map HRV phase to small Z-rotations on each qubit
+    # Apply BEFORE measurement to affect the quantum state
     for i in range(min(circuit.num_qubits, len(hrv_phase_data))):
         # The key: HRV phase → quantum phase rotation
         # Small angles (±π/16) prevent disruption while adding structure
         angle = hrv_phase_data[i] * (np.pi / 16)
-        
-        # Insert Z-rotation BEFORE measurement
-        # (Need to insert before the measure operation)
-        stabilized.rz(angle, i)
+        stabilized.rz(angle, i)  # Z-rotation = pure phase shift
+    
+    # Add measurements AFTER HRV corrections
+    stabilized.measure_all()
     
     return stabilized
 
@@ -167,7 +174,7 @@ def calculate_fidelity_to_target(counts, target_state, total_shots=1024):
     return error
 
 
-# 6. RUN THE COMPARISON: The key experiment
+# 6. RUN THE COMPARISON: The key experiment (UPDATED)
 def compare_error_rates_with_target(n_trials=100, num_qubits=3, shots=1024):
     """
     Run multiple trials comparing baseline vs HRV-stabilized circuits.
@@ -191,23 +198,28 @@ def compare_error_rates_with_target(n_trials=100, num_qubits=3, shots=1024):
     print(f"Running {n_trials} trials...")
     print(f"Qubits: {num_qubits} | Shots per trial: {shots}")
     print(f"Test circuit: Hadamard identity (H·H = I)")
-    print(f"Target state: {'0' * num_qubits}\n")
+    print(f"Target state: {'0' * num_qubits}")
+    print(f"HRV correction: Applied BEFORE measurement\n")
     
     for trial in range(n_trials):
         if (trial + 1) % 20 == 0:
             print(f"  Trial {trial + 1}/{n_trials}...")
         
-        # Create identity circuit with known target state
+        # Create identity circuit with known target state (NO MEASUREMENTS YET)
         circuit, target_state = create_hadamard_identity_test(num_qubits)
         
         # Generate fresh HRV data for this trial
         hrv_data = generate_mock_hrv(n_samples=num_qubits)
         
-        # Create stabilized version
+        # Create stabilized version with HRV corrections
         stabilized_circuit = apply_hrv_stabilization(circuit, hrv_data)
         
+        # Create baseline version (just add measurements, no HRV)
+        baseline_circuit = circuit.copy()
+        baseline_circuit.measure_all()  # Add measurements for baseline
+        
         # Run baseline circuit
-        baseline_result = simulator.run(circuit, shots=shots).result()
+        baseline_result = simulator.run(baseline_circuit, shots=shots).result()
         baseline_counts = baseline_result.get_counts()
         
         # Run stabilized circuit
@@ -330,7 +342,7 @@ print("\nMethodology:")
 print("  • Target state validation (Hadamard identity H·H = I)")
 print("  • State fidelity measurement (1 - error rate)")
 print("  • 0.67Hz HRV rhythm component (anomalous frequency)")
-print("  • Small phase corrections (±π/16 Z-rotations)")
+print("  • Small phase corrections (±π/16 Z-rotations) applied BEFORE measurement")
 print("\nNext Steps:")
 print("  • See DEMO.md for hardware validation (Arc-15 array)")
 print("  • See README.md for full project context")
