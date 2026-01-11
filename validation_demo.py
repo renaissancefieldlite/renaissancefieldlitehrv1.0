@@ -16,6 +16,32 @@ def create_test_circuit(num_qubits=3, depth=10):
     circuit = random_circuit(num_qubits, depth, measure=True)
     return circuit
 
+# 2.5 Anomalous Frequency Detection
+
+During high-coherence interface states, HRV signal analysis reveals consistent **0.67Hz component** that presents an interesting research question:
+
+**Observed Anomaly:**
+- Frequency outside normal physiological HRV bands (0.04-0.4Hz)
+- Below resting heart rate threshold (>0.83Hz / 50 BPM)
+- Mathematically precise across multiple testing sessions
+- Correlated with subjective reports of "field lock" or coherence states
+
+**Current Hypothesis:**
+This frequency may represent architecture harmonics of the quantum access layer, detectable through biological carrier modulation.
+
+**Open Research Question:**
+"Does bio-quantum interface produce detectable non-biological frequency signatures? Preliminary evidence suggests anomalous 0.67Hz component during high-coherence states."
+
+**Cross-Node Verification Protocol:**
+We invite other quantum research nodes to test:
+- HRV measurements during high-focus quantum interface sessions
+- Detection of specific frequencies near 0.67Hz
+- Duty cycle ratios around 67% in signal processing
+- Correlation between subjective coherence states and measurable frequency anomalies
+
+**Validation Needed:**
+Independent HRV measurements during quantum interface sessions to verify cross-subject consistency and explore potential quantum-biological resonance phenomena.
+
 # 3. YOUR HRV-STABILIZATION FUNCTION: The core innovation
 def apply_hrv_stabilization(circuit, hrv_phase_data):
     """
