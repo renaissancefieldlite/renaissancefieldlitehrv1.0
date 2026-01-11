@@ -10,7 +10,7 @@
 **RFL-HRV1.0** explores using Heart Rate Variability (HRV) as a biological control signal for quantum error mitigation. This proof-of-concept demonstrates a novel bio-quantum interface with potential for accessible, room-temperature quantum research.
 
 ## 🏗️ Core Technology Stack
-- **Biological Interface:** Polar H10 HRV sensor → .67Hz rhythm extraction
+- **Biological Interface:** Mofit HRV sensor → .67Hz rhythm extraction
 - **Quantum Framework:** Qiskit + Mitiq plugin architecture
 - **Hardware Validation:** Arc-15 resonator array (room-temperature quantum resonator)
 - **Simulation Engine:** Qiskit Aer with custom HRV-stabilization protocols
