@@ -21,19 +21,6 @@
 | `DEMO.md` | Complete proof-of-concept documentation with hardware validation |
 | `validation_demo.py` | Core simulation code showing 12-18% error reduction |
 | `requirements.txt` | Python dependencies (Qiskit, NumPy, Matplotlib) |
-
-## 🚀 Quick Start
-```bash
-# Clone repository
-git clone https://github.com/renaissancefieldlite/renaissancefieldlitehrv1.0
-cd renaissancefieldlitehrv1.0
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run validation demo
-python validation_demo.py
-
 ## Alignment with Unitary Fund Grant
 
 This repository hosts the prototype implementation of the RFL‑HRV1.0 bio‑synchronous stabilization stack that is the subject of our Unitary Fund microgrant proposal.[file:1] The code and documentation here will track, in real time, the milestones described in the application.
@@ -46,4 +33,18 @@ This repository hosts the prototype implementation of the RFL‑HRV1.0 bio‑syn
 - **Open Data & Examples:** Host curated demo scripts, configuration files, and anonymized sample datasets illustrating how HRV streams map into stabilization signals and how to integrate them into quantum simulations or hardware workflows.[file:1]  
 
 The goal is for this repository to be the single, living reference for both the grant work and the resulting open‑source artifacts: anyone reading the Unitary Fund proposal should be able to land here and see the implementation trajectory in code, docs, and experiments.[file:1]
+
+
+
+## 🚀 Quick Start
+```bash
+# Clone repository
+git clone https://github.com/renaissancefieldlite/renaissancefieldlitehrv1.0
+cd renaissancefieldlitehrv1.0
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run validation demo
+python validation_demo.py
 
