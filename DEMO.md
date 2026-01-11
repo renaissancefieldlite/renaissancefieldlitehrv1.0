@@ -18,6 +18,20 @@ A simplified simulation of the method indicates potential error reduction.
 - **Result:** **12-18% reduction** in effective error rate across randomized benchmark circuits.
 - **Tools:** Qiskit Aer simulator, standard benchmarking modules.
 
+- ### 3. Implementation Code
+The core algorithm is implemented and testable. See [`validation_demo.py`](./validation_demo.py) for the complete Python implementation.
+
+**Key functions:**
+- `generate_mock_hrv()`: Creates realistic HRV data with 0.67Hz rhythm
+- `apply_hrv_stabilization()`: Maps HRV phase to quantum rotations
+- `compare_error_rates()`: Runs comparative simulations
+
+**To run:**
+```bash
+pip install qiskit matplotlib numpy
+python validation_demo.py
+
+
 ## What the Grant Builds
 This $4,000 grant will fund the transformation of this proof-of-concept into `rfl-hrv1.0`—a clean, open-source Python library for the quantum community, including a plugin for Unitary Fund's Mitiq framework.
 
