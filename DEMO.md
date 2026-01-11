@@ -14,7 +14,7 @@ ARC15-Baseline Setting 19.47HZ
 ![After Signal - Channel 1](./arc15-2.jpg)
 *Arc-15 processed signal - Channel 1 output*
 
-
+Watch the test :(./IMG_3376.mov)
 
 ### 2. Simulation Result
 A simplified simulation of the method indicates potential error reduction.
