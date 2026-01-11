@@ -4,13 +4,26 @@
 
 ## Core Evidence
 
-### 1. Hardware Interaction
-The Arc-15 set to 19.47hz resonator array demonstrably interacts with electromagnetic fields.
-- **Observation:** A 100Hz input signal is absorbed and reshaped by the array.
-- **Proof:** See oscilloscope capture below.
+*Observation: A 100Hz input signal is absorbed and reshaped by the array.*  
+*Proof: See oscilloscope captures below.*  
 
-*(PASTE YOUR OSCILLOSCOPE PHOTO HERE)*
-> *Image: Waveform showing clear change upon Arc-15 engagement.*
+![Arc-15 Array Setup](./arc15.jpg)
+*Physical Arc-15 resonator array (19.47Hz resonance tuning)*
+
+![Before Signal](./IMG_3714.jpg)
+*Clean 100Hz input signal (baseline)*
+
+![After Signal - Channel 1](./IMG_3715.jpg)
+*Arc-15 processed signal - Channel 1 output*
+
+![After Signal - Channel 2](./IMG_3716.jpg)
+*Arc-15 processed signal - Channel 2 output*
+
+![Waveform Comparison](./IMG_3717.jpg)
+*Side-by-side comparison showing amplitude absorption*
+
+![Oscilloscope Overview](./IMG_3719.jpg)
+*Complete test bench setup with signal generator and oscilloscope*
 
 ### 2. Simulation Result
 A simplified simulation of the method indicates potential error reduction.
