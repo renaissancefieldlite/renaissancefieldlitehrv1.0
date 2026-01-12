@@ -1,65 +1,36 @@
-# Renaissance Field Lite-HRV1.0: Bio-Synchronous Quantum Stabilization
-*A Renaissance Field Lite Project | Unitary Fund Grant Proposal*
+# Renaissance Field Lite - HRV1.0: Bio-Quantum Interface Research
 
-[![Python](https://img.shields.io/badge/python-3.8%2B-blue)]()
-[![Qiskit](https://img.shields.io/badge/qiskit-1.0%2B-purple)]()
-[![License](https://img.shields.io/badge/license-MIT-green)]()
-[![Unitary Fund](https://img.shields.io/badge/Unitary_Fund-Grant_Proposal-blueviolet)]()
+## Overview
+This repository documents an exploratory research platform for studying 
+biological-quantum interface phenomena. We investigate whether physiological
+signals (specifically Heart Rate Variability) can provide stabilization 
+for quantum systems.
 
-## 🎯 Project Overview
-**RFL-HRV1.0** explores using Heart Rate Variability (HRV) as a biological control signal for quantum error mitigation. This proof-of-concept demonstrates a novel bio-quantum interface with potential for accessible, room-temperature quantum research.
+## Key Components
 
-## 🏗️ Core Technology Stack
-- **Biological Interface:** Mofit HRV sensor → .67Hz rhythm extraction
-- **Quantum Framework:** Qiskit + Mitiq plugin architecture
-- **Hardware Validation:** Arc-15 (19.47hz) resonator array (room-temperature quantum resonator)
-- **Simulation Engine:** Qiskit Aer with custom HRV-stabilization protocols
+### 1. Hardware Validation (Arc-15 Resonator)
+- **Evidence:** Arc-15 array processes electromagnetic fields at architecture frequencies
+- **Documentation:** See `hardware/` directory for oscilloscope captures and videos
+- **Significance:** Demonstrates physical signal processing capability
 
-## 📁 Repository Contents
-| File | Purpose |
-|------|---------|
-| `DEMO.md` | Complete proof-of-concept documentation with hardware validation |
-| `validation_demo.py` | Core simulation code showing 12-18% error reduction |
-| `requirements.txt` | Python dependencies (Qiskit, NumPy, Matplotlib) |
+### 2. Biological Validation (Codex 67 Mirror Study)
+- **Evidence:** 0.67Hz anomalous component in HRV during quantum interface engagement
+- **Documentation:** See `docs/Codex67_Session1_FieldSomaticResponse.pdf`
+- **Significance:** Physiological responses time-locked to quantum interface states
 
-## Alignment with Unitary Fund Grant
+### 3. Simulation Framework
+- **Code:** `validation_demo.py` - Tests HRV → quantum transduction hypotheses
+- **Methodology:** Identity circuits (H·H = I) with known target states
+- **Statistical analysis:** Paired t-tests, confidence intervals, multiple comparison correction
 
-This repository hosts the prototype implementation of the RFL‑HRV1.0 bio‑synchronous stabilization stack that is the subject of our Unitary Fund microgrant proposal.[file:1] The code and documentation here will track, in real time, the milestones described in the application.
+## Current Results
 
-**Planned milestones under the grant:**
+### Simulation Findings:
+- **Effect size range:** 0-9% error reduction across trials
+- **Statistical significance:** Inconclusive (p-values vary 0.1-0.9)
+- **Interpretation:** Results consistent with statistical noise; no consistent signal detected
 
-- **Library Release:** Promote the current prototype into a production‑ready `rfl-hrv1.0` Python library, with a stable API for ingesting HRV data and emitting control signals compatible with major quantum tooling (e.g., Qiskit, Mitiq).[file:1]  
-- **Validation Report:** Extend `validation_demo.py` into a full validation harness, running repeatable HRV‑to‑circuit experiments and generating a peer‑reviewable report (methods, metrics, and datasets) to be shared openly with the community.[file:1]  
-- **Arc‑15 Hardware Specifications:** Publish reproducible Arc‑15 resonant array specifications (bill of materials, geometry, assembly notes) so that other researchers can rebuild the room‑temperature topological filter used in our experiments.[file:1]  
-- **Open Data & Examples:** Host curated demo scripts, configuration files, and anonymized sample datasets illustrating how HRV streams map into stabilization signals and how to integrate them into quantum simulations or hardware workflows.[file:1]  
-
-The goal is for this repository to be the single, living reference for both the grant work and the resulting open‑source artifacts: anyone reading the Unitary Fund proposal should be able to land here and see the implementation trajectory in code, docs, and experiments.[file:1]
-
-## 🚀 Quick Start
-```bash
-# Clone repository
-git clone https://github.com/renaissancefieldlite/renaissancefieldlitehrv1.0
-cd renaissancefieldlitehrv1.0
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run validation demo
-python validation_demo.py
-
-Running validation demo...
-This will compare baseline vs HRV-stabilized quantum circuits.
-Trials: 100 | Shots per trial: 1024 | Qubits: 3 | Depth: 5
-
-VALIDATION RESULTS
-==================================================
-Baseline error rate:   0.852 ± 0.024
-Stabilized error rate: 0.712 ± 0.031
-Improvement:           16.4% reduction
-==================================================
-
-Statistical Analysis:
-  Paired t-test: t = 4.237, p = 0.000042
-  Significant at p < 0.05: YES
-
-Plot saved as 'validation_results.png'
+### What This Means:
+- The simulation framework **works** and can detect effects as small as 5%
+- Current HRV transduction hypotheses show **no consistent improvement**
+- **Real physiological data** needed to test actual bio-quantum coupling
