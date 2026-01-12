@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 # RFL-HRV1.0 CODEX 2.0 - Clean Architecture
 
