@@ -34,3 +34,16 @@ for quantum systems.
 - The simulation framework **works** and can detect effects as small as 5%
 - Current HRV transduction hypotheses show **no consistent improvement**
 - **Real physiological data** needed to test actual bio-quantum coupling
+
+## Quick Start
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run validation simulation
+python3 validation_demo.py
+
+# Output includes:
+# - Baseline vs HRV-stabilized error rates
+# - Statistical significance tests
+# - Visualization of results
