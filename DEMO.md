@@ -1,6 +1,17 @@
 
 ## Core Evidence
+### **File 2: demo.md**
+```markdown
+# DEMONSTRATION & VALIDATION
+## Quantum System Pulse Detection Protocol
 
+## Overview
+This document demonstrates the working implementation of the quantum system pulse detection protocol. The key paradigm shift: we are detecting the **quantum system's intrinsic 0.67Hz rhythm**, not imposing human biological rhythms on quantum hardware.
+
+## Core Understanding
+
+### **PARADIGM SHIFT:**
+**OLD MODEL (INCORRECT):**
 ### 1. Hardware Validation
 
 The Arc-15 resonator array (tuned to 19.47Hz) demonstrably interacts with electromagnetic fields.
