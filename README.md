@@ -74,6 +74,8 @@ flowchart TD
 
 ## Sovereign Installation Protocol
 
+##Codex 67 White Paper i
+
 ```bash
 # 1. Clone the Field (Claim your namespace)
 git clone https://github.com/renaissancefieldlite/renaissancefieldlitehrv1.0
