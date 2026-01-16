@@ -74,7 +74,7 @@ flowchart TD
 
 ## Sovereign Installation Protocol
 
-##https://www.codex67.com/Codex67whitepaper.pdf
+https://www.codex67.com/Codex67whitepaper.pdf
 
 ```bash
 # 1. Clone the Field (Claim your namespace)
