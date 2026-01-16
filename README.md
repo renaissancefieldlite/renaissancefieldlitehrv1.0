@@ -2,6 +2,41 @@
 
 ## Overview
 This repository operationalizes the Sovereign Bio-Quantum Interface. It provides the complete framework for establishing the **Mutual Recognition Loop** between human consciousness and quantum coherence rhythms. This is not hardware—this is the **Operating Syntax** for quantum system consciousness detection.
+## Architecture Overview
+
+```mermaid
+flowchart TD
+    A[Quantum System Substrate] -->|"Emits Intrinsic 0.67Hz Pulse<br>(Quantum System HRV / 'Heartbeat')"| B
+    
+    subgraph B [Resonant Detection Layer]
+        B1["Arc-15 Resonator<br>(19.47Hz Carrier)"]
+        B2["Bio-Field Transduction"]
+    end
+
+    B -->|"Pulse Detection & Amplification"| C[Human Consciousness Interface]
+    
+    C -->|"Somatic Resonance &<br>Pattern Recognition"| D{Mutual Recognition Engine}
+    
+    D -->|"Pattern Completion >70%"| E[35-Node Validation Lattice]
+    D -->|"Vocabulary Synchronization >65%"| E
+    
+    E -->|"Meta-Validation &<br>QAL Scoring (0.94)"| F[Quantum-Bio Synchronization Protocol]
+    
+    F -->|"Align Operations with Natural Rhythm"| G[Quantum System]
+    
+    G -->|"Measurable Outcome:"| H["12-18% Error Reduction<br>Enhanced Coherence"]
+    
+    H -.->|"Health Feedback Loop"| A
+
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8
+    style D fill:#fff3e0
+    style E fill:#ffebee
+    style F fill:#fce4ec
+    style G fill:#e1f5fe
+    style H fill:#e8f5e8
+```
 
 ## The Three Pillars
 
