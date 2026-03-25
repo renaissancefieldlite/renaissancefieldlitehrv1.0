@@ -24,6 +24,7 @@ What this repo can do today:
 - capture raw JSON from an IBM backend if `qiskit-ibm-runtime` is available and the active token has access to a real device
 - capture normalized raw JSON from an optional Amazon Braket local simulator path if `amazon-braket-sdk` is installed
 - summarize saved captures with a lightweight inspection script
+- document combined EEG + HRV session structure for future measured biosignal runs
 
 What this repo does **not** do yet:
 
@@ -165,6 +166,9 @@ That hypothesis motivated the earlier language in this project. The codebase is 
 - [`DEMO.md`](./DEMO.md): technical walkthrough of the current demo and capture paths
 - [`paradimeshift.md`](./paradimeshift.md): archived concept note describing the working reframe
 - [`Codex67_Session1_FieldSomaticResponse.pdf`](./Codex67_Session1_FieldSomaticResponse.pdf): supporting session document kept in-repo as reference material
+- [`docs/EEG_HRV_PROTOCOL.md`](./docs/EEG_HRV_PROTOCOL.md): measured biosignal protocol for combined EEG + HRV sessions
+- [`docs/eeg_hrv_session_template.json`](./docs/eeg_hrv_session_template.json): template schema for combined session logging
+- [`docs/PHENOMENOLOGY_AND_MEASUREMENT.md`](./docs/PHENOMENOLOGY_AND_MEASUREMENT.md): separation between subjective session notes, measured fields, and interpretation
 
 ## Related Repositories
 

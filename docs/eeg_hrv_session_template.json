@@ -1,0 +1,32 @@
+{
+  "schema_version": "rfl.eeg_hrv_session.v1",
+  "session_id": "example-session-001",
+  "condition_label": "baseline_or_entrainment_label",
+  "timing": {
+    "baseline_seconds": 120,
+    "entrainment_seconds": 360,
+    "post_seconds": 120,
+    "timestamp_source": "ntp_or_local_clock"
+  },
+  "eeg": {
+    "device": "device_name",
+    "sample_rate_hz": 256,
+    "channels": ["TP9", "AF7", "AF8", "TP10"],
+    "alpha_power": null,
+    "theta_power": null,
+    "phase_lock_value": null,
+    "coherence_metric": null
+  },
+  "hrv": {
+    "device": "device_name",
+    "source_type": "rr_or_ecg",
+    "rmssd": null,
+    "sdnn": null,
+    "coherence_score": null,
+    "rr_count": null
+  },
+  "notes": {
+    "subjective_report": "",
+    "operator_notes": ""
+  }
+}
