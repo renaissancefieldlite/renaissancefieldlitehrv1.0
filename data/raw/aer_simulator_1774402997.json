@@ -1,0 +1,89 @@
+{
+  "backend_name": "aer_simulator",
+  "backend_version": "0.17.2",
+  "date": "2026-03-24T19:43:17.054687",
+  "header": null,
+  "job_id": "9a231542-f5e3-47ee-9759-d7f68b60fcfe",
+  "status": "COMPLETED",
+  "success": true,
+  "results": [
+    {
+      "shots": 1024,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x3": 509,
+          "0x0": 515
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "creg_sizes": [
+          [
+            "c",
+            2
+          ]
+        ],
+        "global_phase": 0.0,
+        "memory_slots": 2,
+        "n_qubits": 2,
+        "name": "circuit-46",
+        "qreg_sizes": [
+          [
+            "q",
+            2
+          ]
+        ],
+        "metadata": {}
+      },
+      "status": "DONE",
+      "seed_simulator": 2414927188,
+      "metadata": {
+        "num_bind_params": 1,
+        "runtime_parameter_bind": false,
+        "parallel_state_update": 10,
+        "parallel_shots": 1,
+        "sample_measure_time": 0.000198875,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "remapped_qubits": false,
+        "active_input_qubits": [
+          0,
+          1
+        ],
+        "device": "CPU",
+        "time_taken": 0.000689833,
+        "measure_sampling": true,
+        "num_clbits": 2,
+        "max_memory_mb": 16384,
+        "input_qubit_map": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "num_qubits": 2,
+        "method": "stabilizer",
+        "required_memory_mb": 0,
+        "fusion": {
+          "enabled": false
+        }
+      },
+      "time_taken": 0.000689833
+    }
+  ],
+  "qobj_id": "",
+  "metadata": {
+    "time_taken_parameter_binding": 5.0167e-05,
+    "max_memory_mb": 16384,
+    "time_taken_execute": 0.000759458,
+    "omp_enabled": true,
+    "max_gpu_memory_mb": 0,
+    "parallel_experiments": 1
+  },
+  "time_taken": 0.0018758773803710938
+}
