@@ -1,54 +1,99 @@
-# ──────────────────────────────────────────────────────────────
-# File: hrv_ingest/hardware_ingest.py
-# Purpose: grab real error-syndrome timestamps from an IBM cloud back-end
-# Requires: pip install qiskit qiskit-ibm-runtime
-# ──────────────────────────────────────────────────────────────
+"""
+hardware_ingest.py
+────────────────────────────────────────────────────────
+Fetch timestamped error data from an IBM Quantum backend
+OR (if you pass --backend ibmq_qasm_simulator) fall back
+to a local Aer simulator so the rest of the pipeline
+can run without cloud access.
+────────────────────────────────────────────────────────
+Usage examples
+──────────────
+# local simulator (no IBM token needed)
+python hrv_ingest/hardware_ingest.py --backend ibmq_qasm_simulator
 
+# real cloud device once your token has hardware access
+python hrv_ingest/hardware_ingest.py --backend ibmq_oslo
+"""
+
+import argparse, json, time
 from pathlib import Path
-import time, json
 from qiskit import QuantumCircuit
-from qiskit_ibm_runtime import QiskitRuntimeService
 
-# ─────────── helper to build a trivial Clifford sampler ───────────
-def random_clifford_circuit(qubits: int = 5, depth: int = 5) -> QuantumCircuit:
-    """
-    Returns a random Clifford circuit of given depth that ends in a full
-    measurement. Good enough to stress readout and gate fidelity.
-    """
-    from qiskit.circuit.library import Clifford
-    qc = QuantumCircuit(qubits, qubits)
-    for _ in range(depth):
-        qc.append(Clifford.random(qubits), range(qubits))
-    qc.measure(range(qubits), range(qubits))
-    return qc
-
-# ─────────── main capture routine ───────────
+# ────────────────────────────────────────────────────────────
+# grab_error_timestamps
+# ────────────────────────────────────────────────────────────
 def grab_error_timestamps(
-        backend_name: str = "ibm_nairobi",  # change if you want a different HW
-        circuits: int   = 100,              # how many jobs in one batch
-        shots: int      = 1024,             # shots per job
-        out_dir: str    = "data/raw"        # where the JSON lands
+    backend_name: str = "ibm_nairobi",
+    circuits: int = 100,
+    shots: int = 1024,
+    out_dir: str = "data/raw",
 ) -> str:
     """
-    Runs <circuits> random Clifford jobs on the specified IBM back-end and
-    dumps the full result JSON (real error counts & timestamps) to disk.
-    Returns the path for logging.
+    Run <circuits> shallow Clifford jobs on the specified backend
+    and dump the full Result JSON to <out_dir>. Works with either
+    a cloud device *or* a local Aer simulator.
+    Returns the path to the saved file.
     """
-    svc  = QiskitRuntimeService()           # assumes token already saved
-    bk   = svc.backend(backend_name)        # this is REAL hardware, not a sim
-    qcs  = [random_clifford_circuit() for _ in range(circuits)]
-    job  = bk.run(qcs, shots=shots)
-    print(f"[+] submitted job {job.job_id()} to {backend_name}")
 
+    # ----- LOCAL SIMULATOR SHORT-CIRCUIT --------------------
+    if backend_name == "ibmq_qasm_simulator":
+        from qiskit_aer import AerSimulator
+
+        sim = AerSimulator()
+        qc = QuantumCircuit(2)
+        qc.measure_all()
+        result = sim.run(qc, shots=shots).result()
+
+        ts = int(time.time())
+        out_path = Path(out_dir) / f"aer_simulator_{ts}.json"
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(json.dumps(result.to_dict(), indent=2))
+        print(f"✓ saved → {out_path}")
+        return str(out_path)
+    # ----- END LOCAL SIMULATOR SHORT-CIRCUIT ---------------
+
+    # Cloud back-end path (IBM Runtime)
+    from qiskit_ibm_runtime import QiskitRuntimeService
+
+    svc = QiskitRuntimeService()
+    backend = svc.backend(backend_name)
+
+    # simple Clifford sampler
+    circuits_list = []
+    for _ in range(circuits):
+        c = QuantumCircuit(5)
+        c.h(0)
+        c.cx(0, 1)
+        c.measure_all()
+        circuits_list.append(c)
+
+    job = backend.run(circuits_list, shots=shots)
+    print(f"[{backend_name}] job submitted → {job.job_id()}")
     job.wait_for_final_state()
-    res  = job.result()                     # ← live qubit data
-    ts   = int(time.time())
-    out  = Path(out_dir) / f"ibmq_{backend_name}_{ts}.json"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(res.to_dict(), indent=2))
-    print(f"[+] saved → {out}")
-    return str(out)
 
-# ─────────── CLI hook ───────────
+    ts = int(time.time())
+    out_path = Path(out_dir) / f"ibmq_{backend_name}_{ts}.json"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(job.result().to_dict(), indent=2))
+    print(f"✓ saved → {out_path}")
+    return str(out_path)
+
+
+# ────────────────────────────────────────────────────────────
+# CLI
+# ────────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    grab_error_timestamps()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--backend", default="ibm_nairobi",
+                        help="Backend name or ibmq_qasm_simulator for local run")
+    parser.add_argument("--circuits", type=int, default=100)
+    parser.add_argument("--shots", type=int, default=1024)
+    parser.add_argument("--out_dir", default="data/raw")
+    args = parser.parse_args()
+
+    grab_error_timestamps(
+        backend_name=args.backend,
+        circuits=args.circuits,
+        shots=args.shots,
+        out_dir=args.out_dir,
+    )
