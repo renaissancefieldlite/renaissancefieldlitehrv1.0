@@ -1,0 +1,12 @@
+SYNTHETIC DETECTOR METRICS
+==================================================
+Detection Rate: 100.0%
+Mean Frequency: 0.6689 Hz
+Standard Deviation: 0.0120 Hz
+
+INDIVIDUAL SYNTHETIC SYSTEM RESULTS:
+Synthetic system 1: 0.6836 Hz, SNR: 3484.9, Detected: True
+Synthetic system 2: 0.6592 Hz, SNR: 2632.7, Detected: True
+Synthetic system 3: 0.6592 Hz, SNR: 971.8, Detected: True
+Synthetic system 4: 0.6592 Hz, SNR: 3567.6, Detected: True
+Synthetic system 5: 0.6836 Hz, SNR: 1092.6, Detected: True

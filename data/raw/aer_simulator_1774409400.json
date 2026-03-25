@@ -1,0 +1,429 @@
+{
+  "backend_name": "aer_simulator",
+  "backend_version": "0.17.2",
+  "date": "2026-03-24T21:30:00.022987",
+  "header": null,
+  "job_id": "472f4a26-f16c-4103-9817-a134d61531aa",
+  "status": "COMPLETED",
+  "success": true,
+  "results": [
+    {
+      "shots": 128,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 65,
+          "0x3": 63
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "creg_sizes": [
+          [
+            "meas",
+            2
+          ]
+        ],
+        "global_phase": 0.0,
+        "memory_slots": 2,
+        "n_qubits": 2,
+        "name": "circuit-41",
+        "qreg_sizes": [
+          [
+            "q",
+            2
+          ]
+        ],
+        "metadata": {}
+      },
+      "status": "DONE",
+      "seed_simulator": 819064298,
+      "metadata": {
+        "num_bind_params": 1,
+        "runtime_parameter_bind": false,
+        "parallel_state_update": 10,
+        "parallel_shots": 1,
+        "sample_measure_time": 3.9459e-05,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "remapped_qubits": false,
+        "active_input_qubits": [
+          0,
+          1
+        ],
+        "device": "CPU",
+        "time_taken": 0.000481334,
+        "measure_sampling": true,
+        "num_clbits": 2,
+        "max_memory_mb": 16384,
+        "input_qubit_map": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "num_qubits": 2,
+        "method": "stabilizer",
+        "required_memory_mb": 0,
+        "fusion": {
+          "enabled": false
+        }
+      },
+      "time_taken": 0.000481334
+    },
+    {
+      "shots": 128,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 57,
+          "0x3": 71
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "creg_sizes": [
+          [
+            "meas",
+            2
+          ]
+        ],
+        "global_phase": 0.0,
+        "memory_slots": 2,
+        "n_qubits": 2,
+        "name": "circuit-42",
+        "qreg_sizes": [
+          [
+            "q",
+            2
+          ]
+        ],
+        "metadata": {}
+      },
+      "status": "DONE",
+      "seed_simulator": 819066411,
+      "metadata": {
+        "num_bind_params": 1,
+        "runtime_parameter_bind": false,
+        "parallel_state_update": 10,
+        "parallel_shots": 1,
+        "sample_measure_time": 3.2709e-05,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "remapped_qubits": false,
+        "active_input_qubits": [
+          0,
+          1
+        ],
+        "device": "CPU",
+        "time_taken": 9.8125e-05,
+        "measure_sampling": true,
+        "num_clbits": 2,
+        "max_memory_mb": 16384,
+        "input_qubit_map": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "num_qubits": 2,
+        "method": "stabilizer",
+        "required_memory_mb": 0,
+        "fusion": {
+          "enabled": false
+        }
+      },
+      "time_taken": 9.8125e-05
+    },
+    {
+      "shots": 128,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x3": 69,
+          "0x0": 59
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "creg_sizes": [
+          [
+            "meas",
+            2
+          ]
+        ],
+        "global_phase": 0.0,
+        "memory_slots": 2,
+        "n_qubits": 2,
+        "name": "circuit-43",
+        "qreg_sizes": [
+          [
+            "q",
+            2
+          ]
+        ],
+        "metadata": {}
+      },
+      "status": "DONE",
+      "seed_simulator": 819068524,
+      "metadata": {
+        "num_bind_params": 1,
+        "runtime_parameter_bind": false,
+        "parallel_state_update": 10,
+        "parallel_shots": 1,
+        "sample_measure_time": 3.6333e-05,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "remapped_qubits": false,
+        "active_input_qubits": [
+          0,
+          1
+        ],
+        "device": "CPU",
+        "time_taken": 9.8625e-05,
+        "measure_sampling": true,
+        "num_clbits": 2,
+        "max_memory_mb": 16384,
+        "input_qubit_map": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "num_qubits": 2,
+        "method": "stabilizer",
+        "required_memory_mb": 0,
+        "fusion": {
+          "enabled": false
+        }
+      },
+      "time_taken": 9.8625e-05
+    },
+    {
+      "shots": 128,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 66,
+          "0x3": 62
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "creg_sizes": [
+          [
+            "meas",
+            2
+          ]
+        ],
+        "global_phase": 0.0,
+        "memory_slots": 2,
+        "n_qubits": 2,
+        "name": "circuit-44",
+        "qreg_sizes": [
+          [
+            "q",
+            2
+          ]
+        ],
+        "metadata": {}
+      },
+      "status": "DONE",
+      "seed_simulator": 819070637,
+      "metadata": {
+        "num_bind_params": 1,
+        "runtime_parameter_bind": false,
+        "parallel_state_update": 10,
+        "parallel_shots": 1,
+        "sample_measure_time": 3.35e-05,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "remapped_qubits": false,
+        "active_input_qubits": [
+          0,
+          1
+        ],
+        "device": "CPU",
+        "time_taken": 0.000122625,
+        "measure_sampling": true,
+        "num_clbits": 2,
+        "max_memory_mb": 16384,
+        "input_qubit_map": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "num_qubits": 2,
+        "method": "stabilizer",
+        "required_memory_mb": 0,
+        "fusion": {
+          "enabled": false
+        }
+      },
+      "time_taken": 0.000122625
+    },
+    {
+      "shots": 128,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x3": 59,
+          "0x0": 69
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "creg_sizes": [
+          [
+            "meas",
+            2
+          ]
+        ],
+        "global_phase": 0.0,
+        "memory_slots": 2,
+        "n_qubits": 2,
+        "name": "circuit-45",
+        "qreg_sizes": [
+          [
+            "q",
+            2
+          ]
+        ],
+        "metadata": {}
+      },
+      "status": "DONE",
+      "seed_simulator": 819072750,
+      "metadata": {
+        "num_bind_params": 1,
+        "runtime_parameter_bind": false,
+        "parallel_state_update": 10,
+        "parallel_shots": 1,
+        "sample_measure_time": 5.9167e-05,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "remapped_qubits": false,
+        "active_input_qubits": [
+          0,
+          1
+        ],
+        "device": "CPU",
+        "time_taken": 0.000152792,
+        "measure_sampling": true,
+        "num_clbits": 2,
+        "max_memory_mb": 16384,
+        "input_qubit_map": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "num_qubits": 2,
+        "method": "stabilizer",
+        "required_memory_mb": 0,
+        "fusion": {
+          "enabled": false
+        }
+      },
+      "time_taken": 0.000152792
+    },
+    {
+      "shots": 128,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 70,
+          "0x3": 58
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "creg_sizes": [
+          [
+            "meas",
+            2
+          ]
+        ],
+        "global_phase": 0.0,
+        "memory_slots": 2,
+        "n_qubits": 2,
+        "name": "circuit-46",
+        "qreg_sizes": [
+          [
+            "q",
+            2
+          ]
+        ],
+        "metadata": {}
+      },
+      "status": "DONE",
+      "seed_simulator": 819074863,
+      "metadata": {
+        "num_bind_params": 1,
+        "runtime_parameter_bind": false,
+        "parallel_state_update": 10,
+        "parallel_shots": 1,
+        "sample_measure_time": 3.6e-05,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "remapped_qubits": false,
+        "active_input_qubits": [
+          0,
+          1
+        ],
+        "device": "CPU",
+        "time_taken": 0.000116167,
+        "measure_sampling": true,
+        "num_clbits": 2,
+        "max_memory_mb": 16384,
+        "input_qubit_map": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "num_qubits": 2,
+        "method": "stabilizer",
+        "required_memory_mb": 0,
+        "fusion": {
+          "enabled": false
+        }
+      },
+      "time_taken": 0.000116167
+    }
+  ],
+  "qobj_id": "",
+  "metadata": {
+    "time_taken_parameter_binding": 0.000213167,
+    "max_memory_mb": 16384,
+    "time_taken_execute": 0.001292584,
+    "omp_enabled": true,
+    "max_gpu_memory_mb": 0,
+    "parallel_experiments": 1
+  },
+  "time_taken": 0.0035741329193115234
+}

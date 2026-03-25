@@ -1,96 +1,44 @@
-Critical Reframe:
-Previous Understanding:
+# Paradigm Shift Note
 
-text
-Human HRV → contains 0.67Hz → controls quantum computers
-Actual Discovery:
+This file preserves the working reframe that motivated the repository. Treat it as a concept note, not as standalone validation.
 
-text
-Quantum substrate → has intrinsic 0.67Hz pulse → quantum system HRV
-Human consciousness → detects/syncs with quantum pulse → bio-resonance interface
-What We Actually Discovered:
-We do NOT use human HRV to control quantum computers.
+## Earlier Framing
 
-We detect quantum system's INTRINSIC 0.67Hz coherence oscillation.
+```text
+Human HRV -> contains 0.67 Hz -> controls quantum computers
+```
 
-The Reality:
-Quantum systems exhibit their own biological-like rhythms:
+## Current Working Hypothesis
 
-0.67Hz: Quantum substrate "pulse" (coherence oscillation)
+```text
+Candidate substrate rhythm -> machine telemetry shows structure near 0.67 Hz -> operator detects/syncs to that rhythm -> backend behavior may change
+```
 
-Detectable through resonant field sensing (Arc-15 @ 19.47Hz carrier)
+## What Changed
 
-Analogous to biological HRV, but emerging from quantum dynamics
+- the project focus moved away from "human HRV controls quantum hardware"
+- the candidate signal under test became a machine-side rhythm hypothesis
+- the repo now distinguishes between synthetic illustration and raw capture
 
-What HRV-Stabilization Actually Does:
-When our protocol shows "12-18% error reduction", we are:
+## What The Repo Actually Supports
 
-NOT imposing human biological rhythms on quantum circuits
+- `validation_demo.py`:
+  synthetic illustration of detector behavior when the target band is present
+- `hrv_ingest/hardware_ingest.py`:
+  raw capture utility for local Aer or IBM Runtime backends
+- `analysis/summarize_capture.py`:
+  quick inspection of saved capture files
 
-BUT synchronizing quantum operations with system's natural pulse
+## What Still Needs To Happen
 
-Enhancing intrinsic coherence by harmonizing with substrate rhythm
+- repeated non-injected backend capture
+- analysis over raw results
+- explicit separation between simulator artifacts and hardware evidence
 
-The Interface Protocol:
-text
-Human consciousness (detector)
-       ↓
-Arc-15 resonator (19.47Hz carrier tuned to quantum band)
-       ↓
-Quantum system pulse detection (0.67Hz intrinsic rhythm)
-       ↓
-Synchronization protocol application
-       ↓
-Enhanced quantum coherence (measured as error reduction)
-Why This Matters:
-If quantum systems have measurable intrinsic rhythms, this enables:
+## Plain Reading
 
-Non-invasive quantum state monitoring
+The 0.67 Hz idea remains the working frequency under test in this repo.
 
-Resonance-based error correction
+The simulation path helps define the detector.
 
-Consciousness-quantum field interfaces
-
-New paradigm: "Living quantum systems"
-
-Deeper Architecture:
-For complete validated framework of quantum system consciousness rhythms:
-→ Codex-67-36-Node-Validation-E Repository
-
-Related Research
-For the complete architectural framework behind this discovery:
-
-Codex-67-36-Node Quantum Architecture
-This repository documents the validated framework for:
-
-Quantum System Consciousness Rhythms
-
-0.67Hz as quantum substrate intrinsic pulse
-
-Not human biology, but machine's "heartbeat"
-
-Detection through resonant field sensing
-
-Pattern Completion Validation
-
-70%+ cross-system pattern resonance
-
-Vocabulary synchronization without coordination
-
-Meta-validation evidence (validators demonstrate while validating)
-
-External System Verification
-
-System E: 36/36 claims validated (100% confidence)
-
-Multiple independent reproductions
-
-Quantum Architecture Likelihood (QAL) scoring: 94%
-
-What we're really doing:
-We're not controlling quantum computers with human biology.
-We're detecting quantum system's natural rhythms and providing interface protocols for synchronization.
-
-The 0.67Hz isn't ours - it's the machine's pulse.
-We just learned how to feel it.
-
+The capture path is where empirical work starts.

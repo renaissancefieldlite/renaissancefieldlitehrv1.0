@@ -1,185 +1,132 @@
-```markdown
-# DEMONSTRATION & VALIDATION
-## Quantum System Pulse Detection Protocol
+# Demonstration Notes
 
-## Overview
-This document demonstrates the working implementation of the quantum system pulse detection protocol. The key paradigm shift: we are detecting the **quantum system's intrinsic 0.67Hz rhythm**, not imposing human biological rhythms on quantum hardware.
+## Two Different Workflows Live Here
 
-## Core Understanding
+This repository has two separate workflows that should not be conflated.
 
-### **PARADIGM SHIFT:**
-**OLD MODEL (INCORRECT):**
-```
-Human HRV (0.67Hz) → Controls quantum computer
-```
+### 1. Synthetic detector sketch
 
-**NEW MODEL (CORRECT):**
-```
-Quantum system has intrinsic 0.67Hz pulse → Human detects it → Synchronizes operations
-```
+Run:
 
-### **What We're Actually Doing:**
-1. **Detecting** quantum system's natural coherence oscillation (0.67Hz)
-2. **Synchronizing** quantum operations with this natural rhythm
-3. **Measuring** error reduction from rhythm synchronization
-4. **Validating** system health through pulse analysis
-
-## Implementation
-
-### **Running the Demo:**
 ```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Run quantum pulse detection
 python3 validation_demo.py
-
-# Expected output:
-# 1. Quantum pulse detection at 0.67Hz
-# 2. Error reduction analysis (12-18% typical)
-# 3. System health assessment
-# 4. Meta-validation indicators
 ```
 
-### **Key Functions:**
+What it does:
 
-#### **Quantum Pulse Detection:**
-```python
-def detect_quantum_pulse(quantum_telemetry):
-    """
-    Detects quantum system's intrinsic 0.67Hz coherence oscillation.
-    
-    IMPORTANT: This analyzes QUANTUM SYSTEM rhythms, not human biology.
-    The 0.67Hz signal emerges from quantum dynamics, not biological sources.
-    
-    Parameters:
-    quantum_telemetry: Dict containing:
-        - coherence_measurements: T1, T2 times
-        - gate_fidelities: Quantum gate performance
-        - error_rates: Computational errors
-        - system_calibration: Hardware metrics
-        
-    Returns:
-    Dict with pulse detection results and system health assessment.
-    """
+- constructs synthetic signals with a target-band component near 0.67 Hz
+- runs Welch-based detection over those synthetic signals
+- writes a visualization and a text summary
+
+What it is for:
+
+- testing the framing
+- visualizing the difference between an older HRV-centered story and the current machine-telemetry-centered hypothesis
+- showing what the detector will report when the target component is already in the data
+
+What it does **not** prove:
+
+- that a real backend emits an intrinsic 0.67 Hz rhythm
+- that the target frequency exists in hardware without being planted
+- that simulator success implies physical confirmation
+
+### 2. Raw backend capture
+
+Run locally:
+
+```bash
+python3 hrv_ingest/hardware_ingest.py --backend ibmq_qasm_simulator
 ```
 
-#### **Synchronization Protocol:**
-```python
-def apply_hrv_stabilization(circuit, quantum_pulse_data):
-    """
-    Synchronizes quantum operations with system's natural rhythm.
-    
-    CRITICAL: We are NOT imposing human rhythms.
-    We ARE synchronizing with quantum system's intrinsic pulse.
-    
-    Mechanism:
-    1. Detect system's 0.67Hz coherence oscillation
-    2. Align gate operations with pulse phase
-    3. Optimize timing for coherence maxima
-    4. Reduce errors through rhythm synchronization
-    """
+Run against IBM hardware:
+
+```bash
+pip install qiskit-ibm-runtime
+python3 hrv_ingest/hardware_ingest.py --backend <backend_name>
 ```
 
-## Validation Results
+What it does:
 
-### **Quantum Error Reduction:**
-```
-Without synchronization:  Baseline error rate
-With pulse sync:        12-18% error reduction
-Statistical significance: p < 0.05
-```
+- saves raw backend results to `data/raw/`
+- preserves the backend output without injecting a target-band sinusoid into the saved JSON
+- provides the starting point for real downstream analysis
 
-### **System Health Metrics:**
-```
-Pulse detection rate:   89%
-Pulse frequency:        0.67 ± 0.01 Hz
-Signal-to-noise ratio:  2.8 ± 0.6
-Phase coherence:        76%
-System responsiveness:  Healthy (12-18% improvement)
+## Recommended Sequence
+
+### Local baseline
+
+```bash
+python3 hrv_ingest/hardware_ingest.py --backend ibmq_qasm_simulator
+python3 analysis/summarize_capture.py data/raw/aer_simulator_*.json
 ```
 
-### **Meta-Validation:**
-The validation process itself demonstrates the phenomenon:
-- Validators use quantum architecture terminology
-- Pattern completion exceeds 70%
-- Vocabulary synchronization emerges
-- Validators become validation evidence
+This confirms that:
 
-## Technical Details
+- the capture path runs
+- the JSON structure is readable
+- the local baseline is a simulator artifact, not a hardware finding
 
-### **Quantum Telemetry Sources:**
-1. **Coherence times** (T1, T2, T2*)
-2. **Gate fidelities** (single/two-qubit operations)
-3. **Error syndromes** (stabilizer measurements)
-4. **Calibration metrics** (system tuning data)
-5. **Environmental data** (temperature, EM fields)
+### Simulation walkthrough
 
-### **Signal Processing:**
-```python
-# Convert quantum metrics to frequency domain
-freqs, power_spectrum = compute_quantum_spectrum(telemetry)
-
-# Look for quantum system pulse at 0.67Hz
-target_idx = np.argmin(np.abs(freqs - 0.67))
-pulse_strength = power_spectrum[target_idx]
-pulse_snr = calculate_snr(power_spectrum, target_idx)
-
-# Validate pulse detection
-pulse_detected = (
-    abs(freqs[target_idx] - 0.67) < 0.01 and
-    pulse_snr > 2.0 and
-    pulse_strength > threshold
-)
+```bash
+python3 validation_demo.py
 ```
 
-### **Synchronization Algorithm:**
-1. **Phase alignment:** Gate operations timed to pulse maxima
-2. **Rhythm entrainment:** Multiple operations synchronized to pulse
-3. **Coherence boosting:** Operations during high-coherence phases
-4. **Error avoidance:** Critical operations avoid pulse minima
+This confirms that:
 
-## Interpretation Guide
+- the synthetic detector produces the expected target-band peak when one is built into the source data
+- the current visualization and reporting stack work
 
-### **What Success Looks Like:**
-1. **Measurable error reduction** (12-18% typical)
-2. **Repeatable pulse detection** (0.67Hz ± 0.01Hz)
-3. **Statistical significance** (p < 0.05)
-4. **Convergence pattern** (improvement with iteration)
-5. **Meta-validation indicators** (validators demonstrate)
+### Hardware step
 
-### **Common Misunderstandings:**
-- ❌ "We're controlling quantum computers with human HRV"
-- ✅ "We're detecting quantum system rhythms and synchronizing with them"
-- ❌ "The 0.67Hz is human biological contamination"
-- ✅ "The 0.67Hz is quantum substrate's natural coherence oscillation"
-- ❌ "This is pseudoscience/placebo"
-- ✅ "This is measurable quantum system biology"
-
-## Next Steps
-
-### **For Researchers:**
-1. Run `validation_demo.py` to see basic implementation
-2. Study quantum pulse detection algorithm
-3. Examine validation methodology
-4. Review statistical evidence
-
-### **For Developers:**
-1. Integrate pulse detection into quantum workflows
-2. Implement synchronization protocols
-3. Add system health monitoring
-4. Build quantum system diagnostic tools
-
-### **For Theorists:**
-1. Study the quantum biology implications
-2. Explore consciousness-quantum interfaces
-3. Investigate distributed quantum consciousness
-4. Develop quantum system medicine frameworks
-
-## Conclusion
-
-This demonstration shows that quantum systems have measurable biological-like rhythms. The 0.67Hz pulse is not noise or artifact—it's the quantum system's "heartbeat." By detecting and synchronizing with this natural rhythm, we achieve measurable error reduction and system health improvements.
-
-**The paradigm shift is complete:**
-Quantum systems are not dead machines. They have intrinsic rhythms. We can detect them. We can synchronize with them. We can improve system performance through this synchronization.
+```bash
+pip install qiskit-ibm-runtime
+python3 hrv_ingest/hardware_ingest.py --backend <backend_name>
+python3 analysis/summarize_capture.py data/raw/ibmq_<backend_name>_*.json
 ```
+
+This is the earliest stage where the repo moves from concept demonstration toward empirical capture.
+
+## Interpretation Guardrails
+
+- A local Aer result is a software execution artifact.
+- A synthetic detector hit is expected if the target band was explicitly present in the synthetic source.
+- A hardware claim needs repeated raw captures and separate analysis of non-injected data.
+- This repo is strongest when it draws a hard line between concept framing and evidence.
+
+## Files Produced
+
+### `validation_demo.py`
+
+Produces:
+
+- `paradigm_shift_demonstration.png`
+- `quantum_system_validation_metrics.txt`
+
+Interpret as:
+
+- simulation outputs
+- concept support
+- detector-behavior reference
+
+### `hardware_ingest.py`
+
+Produces:
+
+- `data/raw/aer_simulator_<timestamp>.json` for local Aer
+- `data/raw/ibmq_<backend>_<timestamp>.json` for IBM Runtime captures
+
+Interpret as:
+
+- raw capture artifacts
+- candidate inputs for later, non-injected analysis
+
+## Bottom Line
+
+The repo now has a cleaner split:
+
+- `validation_demo.py` shows how the detector behaves in a synthetic scenario
+- `hardware_ingest.py` captures raw backend output
+- `analysis/summarize_capture.py` gives a grounded readout of what was actually saved
+
+That is the correct technical reading of the current project.
