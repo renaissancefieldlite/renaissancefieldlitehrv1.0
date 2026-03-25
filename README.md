@@ -7,7 +7,7 @@ This repository is the experimental layer for the RFL 0.67 Hz hypothesis. It cur
 - a **synthetic demonstration** in [`validation_demo.py`](./validation_demo.py) that shows how a detector behaves when a 0.67 Hz component is present by construction
 - a **raw capture utility** in [`hrv_ingest/hardware_ingest.py`](./hrv_ingest/hardware_ingest.py) that saves backend or local Aer results as JSON without injecting a target frequency into the saved data
 
-That distinction matters. The simulation is useful for working out the framing and signal-processing path. It is not empirical proof that a quantum backend has an intrinsic 0.67 Hz pulse.
+That distinction matters. The simulation is useful for working out the framing and signal-processing path. The repo documents simulation behavior separately from raw capture and empirical follow-up.
 
 Parent architecture layer:
 
@@ -29,11 +29,11 @@ What this repo can do today:
 - log acoustic-mapping sessions where an audio artifact is treated as a structured input lane
 - document combined EEG + HRV session structure for future measured biosignal runs
 
-What this repo does **not** do yet:
+What this repo currently documents as next-step work:
 
-- prove that real hardware contains an intrinsic 0.67 Hz rhythm
-- ingest Arc-15 or other external biosignal hardware directly as live waveform capture
-- derive a sub-Hz claim from the local ideal simulator alone
+- repeated real-hardware capture needed for adjudicating an intrinsic 0.67 Hz rhythm claim
+- live waveform ingestion for Arc-15 or other external biosignal hardware
+- sub-Hz adjudication beyond the local ideal simulator path
 
 ## Evidence Boundary
 
@@ -41,7 +41,7 @@ Use the repo with these guardrails:
 
 1. `validation_demo.py` is a **simulation sketch**. It injects a target-band component and then measures how the synthetic detector responds.
 2. `hrv_ingest/hardware_ingest.py` is the **empirical entry path**. It saves raw backend output without planting a 0.67 Hz oscillation into the JSON.
-3. Local `AerSimulator` output proves the code path runs. It does **not** adjudicate the physical hypothesis.
+3. Local `AerSimulator` output documents that the code path runs and provides a simulator baseline for later comparison.
 4. Any claim about an intrinsic backend rhythm should come from repeated raw captures and separate analysis of non-injected data.
 5. External-rig logs such as Arc15 sessions are valid hardware-session artifacts, but manual metadata or oscilloscope observations are not the same thing as direct waveform ingestion.
 
