@@ -8,6 +8,7 @@ The goal is not to collapse everything into HRV. The goal is to let the repo han
 
 - EEG captures phase-lock or coherence changes
 - HRV captures autonomic rhythm/coherence changes
+- external front-end hardware such as Arc15 can be logged as a separate rig lane
 - subjective field notes remain logged, but separate from measured channels
 
 ## Why EEG Fits
@@ -27,6 +28,9 @@ That matters because:
   - chest strap, ECG capture, or existing HRV path
 - 1 machine running the capture scripts
 - synchronized timestamps across channels
+- optional external-rig lane:
+  - Arc15 / FG200.67 or similar front-end hardware
+  - oscilloscope or waveform export path if available
 
 ## Minimum Session Structure
 
@@ -81,6 +85,8 @@ That matters because:
 - post duration
 - timestamp source
 - operator notes
+- external rig id if used
+- external rig drive frequencies if used
 
 ## Interpretation Guardrails
 
@@ -89,6 +95,9 @@ That matters because:
 - subjective reports can be important, but they should be stored in a separate field from the measured metrics.
 - one combined session does not prove the entire theory.
 - repeated sessions with consistent logging are the path to stronger claims.
+- if Arc15 or another front-end rig is used, keep its hardware/session fields
+  separate from EEG and HRV numeric summaries unless direct synchronization is
+  demonstrated.
 
 ## Recommended Repo Position
 

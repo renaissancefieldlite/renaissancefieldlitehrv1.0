@@ -6,6 +6,7 @@ Supported providers:
 - aer: local Qiskit Aer simulator
 - ibm: IBM Runtime backends
 - braket-local: Amazon Braket local simulator
+- external-rig: normalized metadata/session logging for external hardware tests
 
 The output schema is normalized so later analysis can distinguish provider,
 backend, capture mode, and raw result payload.
@@ -191,6 +192,29 @@ def capture_braket_local(*, circuits: int, shots: int, out_dir: str) -> str:
     return write_capture_file(payload, out_path)
 
 
+def capture_external_rig(*, backend_name: str, session_json: str, out_dir: str) -> str:
+    """Save an external hardware session using the normalized schema."""
+    session_path = Path(session_json)
+    if not session_path.exists():
+        raise SystemExit(f"External rig session JSON not found: {session_json}")
+
+    session_payload = json.loads(session_path.read_text(encoding="utf-8"))
+    payload = normalize_capture(
+        provider="external-rig",
+        backend_name=backend_name,
+        capture_mode="manual_external_session",
+        circuits=0,
+        shots=0,
+        raw_result={"session_record": session_payload},
+        extra={"result_format": "external_rig_session_v1"},
+    )
+    timestamp = int(time.time())
+    safe_name = backend_name.replace(" ", "_")
+    out_path = Path(out_dir) / f"{safe_name}_{timestamp}.json"
+    print(f"[external-rig:{backend_name}] session={session_path.name}")
+    return write_capture_file(payload, out_path)
+
+
 def infer_provider(provider: str, backend_name: str) -> str:
     """Infer the provider when the user leaves it on auto."""
     if provider != "auto":
@@ -199,6 +223,8 @@ def infer_provider(provider: str, backend_name: str) -> str:
         return "aer"
     if backend_name.startswith("braket"):
         return "braket-local"
+    if backend_name.startswith("arc15") or "fg200" in backend_name.lower():
+        return "external-rig"
     return "ibm"
 
 
@@ -209,6 +235,7 @@ def grab_error_timestamps(
     circuits: int = 100,
     shots: int = 1024,
     out_dir: str = "data/raw",
+    session_json: str | None = None,
 ) -> str:
     """Capture backend output and write the normalized result JSON to disk."""
     resolved_provider = infer_provider(provider, backend_name)
@@ -224,6 +251,16 @@ def grab_error_timestamps(
         )
     if resolved_provider == "braket-local":
         return capture_braket_local(circuits=circuits, shots=shots, out_dir=out_dir)
+    if resolved_provider == "external-rig":
+        if not session_json:
+            raise SystemExit(
+                "External rig capture requires --session-json pointing to a normalized session record."
+            )
+        return capture_external_rig(
+            backend_name=backend_name,
+            session_json=session_json,
+            out_dir=out_dir,
+        )
 
     raise SystemExit(f"Unsupported provider: {resolved_provider}")
 
@@ -233,7 +270,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--provider",
         default="auto",
-        choices=["auto", "aer", "ibm", "braket-local"],
+        choices=["auto", "aer", "ibm", "braket-local", "external-rig"],
         help="Capture provider. auto preserves backward compatibility.",
     )
     parser.add_argument(
@@ -244,6 +281,10 @@ if __name__ == "__main__":
     parser.add_argument("--circuits", type=int, default=100)
     parser.add_argument("--shots", type=int, default=1024)
     parser.add_argument("--out_dir", default="data/raw")
+    parser.add_argument(
+        "--session-json",
+        help="Path to a normalized external-hardware session record when provider=external-rig.",
+    )
     args = parser.parse_args()
 
     grab_error_timestamps(
@@ -252,4 +293,5 @@ if __name__ == "__main__":
         circuits=args.circuits,
         shots=args.shots,
         out_dir=args.out_dir,
+        session_json=args.session_json,
     )

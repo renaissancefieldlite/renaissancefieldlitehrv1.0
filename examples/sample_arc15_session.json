@@ -1,0 +1,34 @@
+{
+  "schema_version": "rfl.external_rig_session.v1",
+  "session_id": "arc15_test_001",
+  "timestamp_source": "manual_entry",
+  "rig": {
+    "device_name": "arc15_fg200_67",
+    "reported_base_unit": "FG200.67",
+    "modifications": {
+      "sphere_count": 15,
+      "sphere_size_mm": 20,
+      "array_note": "15 x 20 mm spheres on array"
+    },
+    "working_role_hypothesis": "external front-end / topographic stabilizer candidate"
+  },
+  "drive_conditions": {
+    "primary_generator_frequency_hz": 19.47,
+    "primary_waveform": "unspecified",
+    "secondary_generator_frequency_hz": 100.0,
+    "secondary_waveform": "unspecified"
+  },
+  "measurement": {
+    "instrument": "oscilloscope",
+    "channels": [
+      "arc15_main",
+      "secondary_generator"
+    ],
+    "observed_cross_coupling": true,
+    "observation_summary": "The 100 Hz generator appeared to affect the reading on the Arc15 channel."
+  },
+  "interpretation_notes": [
+    "Treat this as a coupling artifact until waveform exports or repeated sessions are attached.",
+    "Do not treat this record alone as proof of the larger ontology."
+  ]
+}

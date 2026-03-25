@@ -24,12 +24,14 @@ What this repo can do today:
 - capture raw JSON from an IBM backend if `qiskit-ibm-runtime` is available and the active token has access to a real device
 - capture normalized raw JSON from an optional Amazon Braket local simulator path if `amazon-braket-sdk` is installed
 - summarize saved captures with a lightweight inspection script
+- build a local decoherence/noise trajectory from calibration-style hardware data
+- log external-rig sessions such as Arc15 / FG200.67 with oscilloscope-linked observations
 - document combined EEG + HRV session structure for future measured biosignal runs
 
 What this repo does **not** do yet:
 
 - prove that real hardware contains an intrinsic 0.67 Hz rhythm
-- ingest Arc-15 or other external biosignal hardware directly
+- ingest Arc-15 or other external biosignal hardware directly as live waveform capture
 - derive a sub-Hz claim from the local ideal simulator alone
 
 ## Evidence Boundary
@@ -40,6 +42,7 @@ Use the repo with these guardrails:
 2. `hrv_ingest/hardware_ingest.py` is the **empirical entry path**. It saves raw backend output without planting a 0.67 Hz oscillation into the JSON.
 3. Local `AerSimulator` output proves the code path runs. It does **not** adjudicate the physical hypothesis.
 4. Any claim about an intrinsic backend rhythm should come from repeated raw captures and separate analysis of non-injected data.
+5. External-rig logs such as Arc15 sessions are valid hardware-session artifacts, but manual metadata or oscilloscope observations are not the same thing as direct waveform ingestion.
 
 ## Repository Layout
 
@@ -104,6 +107,42 @@ This generates:
 
 Those artifacts document the **simulation behavior** of the current detector framing. They are not raw hardware evidence.
 
+### 5. Build a hardware-derived local simulation
+
+```bash
+python3 analysis/hardware_noise_model.py \
+  examples/sample_hardware_calibration.json \
+  --output data/derived_noise/sample_noise_profile.json
+```
+
+This path uses measured-style calibration parameters such as:
+
+- `T1`
+- `T2`
+- readout error
+- single-qubit gate error
+- frequency drift
+- anharmonicity
+- neighbor bleed / crosstalk
+
+to generate a local decoherence and drift model that is materially closer to hardware than an unconstrained synthetic waveform.
+
+### 6. Log an Arc15 / external-rig session
+
+```bash
+python3 hrv_ingest/hardware_ingest.py \
+  --provider external-rig \
+  --backend arc15_fg200_67 \
+  --session-json examples/sample_arc15_session.json
+```
+
+This writes a normalized session artifact into `data/raw/` and is intended for:
+
+- Arc15 / FG200.67 front-end trials
+- oscilloscope-coupling observations
+- paired generator tests
+- later alignment against EEG, HRV, or backend runs
+
 ## Provider Paths
 
 ### IBM Runtime
@@ -154,6 +193,10 @@ The broader working hypothesis in this repo is:
 
 `candidate substrate rhythm -> detection path -> synchronization hypothesis -> measurable backend change`
 
+An additional hardware-facing hypothesis can be tracked here without overclaiming:
+
+`external front-end / topographic stabilizer candidate -> measurable coupling artifact -> later correlation with transition-cadence and biosignal lanes`
+
 That hypothesis motivated the earlier language in this project. The codebase is now separated more cleanly:
 
 - concept notes live in [`paradimeshift.md`](./paradimeshift.md)
@@ -169,6 +212,9 @@ That hypothesis motivated the earlier language in this project. The codebase is 
 - [`docs/EEG_HRV_PROTOCOL.md`](./docs/EEG_HRV_PROTOCOL.md): measured biosignal protocol for combined EEG + HRV sessions
 - [`docs/eeg_hrv_session_template.json`](./docs/eeg_hrv_session_template.json): template schema for combined session logging
 - [`docs/PHENOMENOLOGY_AND_MEASUREMENT.md`](./docs/PHENOMENOLOGY_AND_MEASUREMENT.md): separation between subjective session notes, measured fields, and interpretation
+- [`docs/HARDWARE_DERIVED_SIMULATION.md`](./docs/HARDWARE_DERIVED_SIMULATION.md): how to build a local noise/decoherence model from available hardware data
+- [`docs/ARC15_HARDWARE_PROTOCOL.md`](./docs/ARC15_HARDWARE_PROTOCOL.md): bounded protocol for Arc15 / FG200.67 front-end tests
+- [`examples/sample_arc15_session.json`](./examples/sample_arc15_session.json): sample session record for Arc15 / oscilloscope coupling tests
 
 ## Related Repositories
 
