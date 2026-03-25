@@ -11,6 +11,7 @@ That distinction matters. The simulation is useful for working out the framing a
 
 Parent architecture layer:
 
+- [Codex-67-white-paper-](https://github.com/renaissancefieldlite/Codex-67-white-paper-)
 - [Codex-67-white-paper-code-layers](https://github.com/renaissancefieldlite/Codex-67-white-paper-code-layers)
 
 ## Current Status
@@ -166,8 +167,9 @@ That hypothesis motivated the earlier language in this project. The codebase is 
 
 ## Related Repositories
 
-- [Codex-67-white-paper-code-layers](https://github.com/renaissancefieldlite/Codex-67-white-paper-code-layers): architecture and package scaffold
-- `renaissancefieldlitehrv1.0`: experiment and capture layer
+- [Codex-67-white-paper-](https://github.com/renaissancefieldlite/Codex-67-white-paper-): source document and PDF layer
+- [Codex-67-white-paper-code-layers](https://github.com/renaissancefieldlite/Codex-67-white-paper-code-layers): architecture and validation scaffold
+- `renaissancefieldlitehrv1.0`: HRV experiment and capture layer
 
 ## Practical Reading Of This Repo
 
