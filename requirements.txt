@@ -1,6 +1,7 @@
 # Core dependencies for the synthetic demo and local Aer capture path.
-# IBM cloud capture additionally requires:
+# Optional provider add-ons:
 #   pip install qiskit-ibm-runtime
+#   pip install amazon-braket-sdk
 
 qiskit~=2.3.0
 qiskit-aer~=0.17.0

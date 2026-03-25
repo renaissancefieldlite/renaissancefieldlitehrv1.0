@@ -35,28 +35,36 @@ What it does **not** prove:
 Run locally:
 
 ```bash
-python3 hrv_ingest/hardware_ingest.py --backend ibmq_qasm_simulator
+python3 hrv_ingest/hardware_ingest.py --provider aer --backend ibmq_qasm_simulator
 ```
 
 Run against IBM hardware:
 
 ```bash
 pip install qiskit-ibm-runtime
-python3 hrv_ingest/hardware_ingest.py --backend <backend_name>
+python3 hrv_ingest/hardware_ingest.py --provider ibm --backend <backend_name>
 ```
 
 What it does:
 
 - saves raw backend results to `data/raw/`
 - preserves the backend output without injecting a target-band sinusoid into the saved JSON
+- wraps new captures in a shared schema so provider-specific payloads are easier to compare later
 - provides the starting point for real downstream analysis
+
+Optional Braket local run:
+
+```bash
+pip install amazon-braket-sdk
+python3 hrv_ingest/hardware_ingest.py --provider braket-local --backend braket_local
+```
 
 ## Recommended Sequence
 
 ### Local baseline
 
 ```bash
-python3 hrv_ingest/hardware_ingest.py --backend ibmq_qasm_simulator
+python3 hrv_ingest/hardware_ingest.py --provider aer --backend ibmq_qasm_simulator
 python3 analysis/summarize_capture.py data/raw/aer_simulator_*.json
 ```
 
@@ -69,7 +77,7 @@ This confirms that:
 ### Simulation walkthrough
 
 ```bash
-python3 validation_demo.py
+MPLBACKEND=Agg MPLCONFIGDIR=/tmp/mpl python3 validation_demo.py
 ```
 
 This confirms that:
@@ -81,7 +89,7 @@ This confirms that:
 
 ```bash
 pip install qiskit-ibm-runtime
-python3 hrv_ingest/hardware_ingest.py --backend <backend_name>
+python3 hrv_ingest/hardware_ingest.py --provider ibm --backend <backend_name>
 python3 analysis/summarize_capture.py data/raw/ibmq_<backend_name>_*.json
 ```
 

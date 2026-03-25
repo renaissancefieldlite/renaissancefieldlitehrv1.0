@@ -9,13 +9,18 @@ This repository is the experimental layer for the RFL 0.67 Hz hypothesis. It cur
 
 That distinction matters. The simulation is useful for working out the framing and signal-processing path. It is not empirical proof that a quantum backend has an intrinsic 0.67 Hz pulse.
 
+Parent architecture layer:
+
+- [Codex-67-white-paper-code-layers](https://github.com/renaissancefieldlite/Codex-67-white-paper-code-layers)
+
 ## Current Status
 
 What this repo can do today:
 
 - generate a synthetic 0.67 Hz demo signal and accompanying visualization
-- capture raw JSON from a local `AerSimulator`
+- capture normalized raw JSON from a local `AerSimulator`
 - capture raw JSON from an IBM backend if `qiskit-ibm-runtime` is available and the active token has access to a real device
+- capture normalized raw JSON from an optional Amazon Braket local simulator path if `amazon-braket-sdk` is installed
 - summarize saved captures with a lightweight inspection script
 
 What this repo does **not** do yet:
@@ -64,7 +69,7 @@ pip install -r requirements.txt
 ### 2. Capture a local simulator baseline
 
 ```bash
-python3 hrv_ingest/hardware_ingest.py --backend ibmq_qasm_simulator
+python3 hrv_ingest/hardware_ingest.py --provider aer --backend ibmq_qasm_simulator
 ```
 
 This writes a JSON result into `data/raw/`.
@@ -86,7 +91,7 @@ The summary script reports:
 ### 4. Run the synthetic detector demo
 
 ```bash
-python3 validation_demo.py
+MPLBACKEND=Agg MPLCONFIGDIR=/tmp/mpl python3 validation_demo.py
 ```
 
 This generates:
@@ -96,7 +101,9 @@ This generates:
 
 Those artifacts document the **simulation behavior** of the current detector framing. They are not raw hardware evidence.
 
-## IBM Backend Capture
+## Provider Paths
+
+### IBM Runtime
 
 If you want to hit a real IBM backend, install the runtime client in the same environment:
 
@@ -107,13 +114,13 @@ pip install qiskit-ibm-runtime
 Then run:
 
 ```bash
-python3 hrv_ingest/hardware_ingest.py --backend <backend_name>
+python3 hrv_ingest/hardware_ingest.py --provider ibm --backend <backend_name>
 ```
 
 Example:
 
 ```bash
-python3 hrv_ingest/hardware_ingest.py --backend ibm_fez
+python3 hrv_ingest/hardware_ingest.py --provider ibm --backend ibm_fez
 ```
 
 Notes:
@@ -121,6 +128,22 @@ Notes:
 - backend availability depends on the token and plan attached to your IBM account
 - the utility saves the raw result JSON as returned by the backend
 - empirical interpretation should be done on repeated captures, not a single idealized run
+
+### Amazon Braket Local Simulator
+
+If you want a second local simulator stack, install the Braket SDK:
+
+```bash
+pip install amazon-braket-sdk
+```
+
+Then run:
+
+```bash
+python3 hrv_ingest/hardware_ingest.py --provider braket-local --backend braket_local
+```
+
+This path is useful for cross-provider tooling checks. It is still a simulator path, not hardware evidence.
 
 ## Concept Layer
 
@@ -133,12 +156,18 @@ That hypothesis motivated the earlier language in this project. The codebase is 
 - concept notes live in [`paradimeshift.md`](./paradimeshift.md)
 - synthetic framing lives in [`validation_demo.py`](./validation_demo.py)
 - raw capture lives in [`hrv_ingest/hardware_ingest.py`](./hrv_ingest/hardware_ingest.py)
+- capture inspection lives in [`analysis/summarize_capture.py`](./analysis/summarize_capture.py)
 
 ## Related Files
 
 - [`DEMO.md`](./DEMO.md): technical walkthrough of the current demo and capture paths
 - [`paradimeshift.md`](./paradimeshift.md): archived concept note describing the working reframe
 - [`Codex67_Session1_FieldSomaticResponse.pdf`](./Codex67_Session1_FieldSomaticResponse.pdf): supporting session document kept in-repo as reference material
+
+## Related Repositories
+
+- [Codex-67-white-paper-code-layers](https://github.com/renaissancefieldlite/Codex-67-white-paper-code-layers): architecture and package scaffold
+- `renaissancefieldlitehrv1.0`: experiment and capture layer
 
 ## Practical Reading Of This Repo
 
