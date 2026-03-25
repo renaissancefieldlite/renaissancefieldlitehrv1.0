@@ -1,0 +1,93 @@
+{
+  "backend_name": "aer_simulator",
+  "backend_version": "0.17.2",
+  "date": "2026-03-24T20:03:35.951130",
+  "header": null,
+  "job_id": "b855b50d-ca5e-4363-a7d7-2013e22bb9ad",
+  "status": "COMPLETED",
+  "success": true,
+  "results": [
+    {
+      "shots": 1024,
+      "success": true,
+      "data": {
+        "counts": {
+          "0xc": 513,
+          "0x0": 511
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "creg_sizes": [
+          [
+            "c",
+            2
+          ],
+          [
+            "meas",
+            2
+          ]
+        ],
+        "global_phase": 0.0,
+        "memory_slots": 4,
+        "n_qubits": 2,
+        "name": "circuit-46",
+        "qreg_sizes": [
+          [
+            "q",
+            2
+          ]
+        ],
+        "metadata": {}
+      },
+      "status": "DONE",
+      "seed_simulator": 2181781781,
+      "metadata": {
+        "num_bind_params": 1,
+        "runtime_parameter_bind": false,
+        "parallel_state_update": 10,
+        "parallel_shots": 1,
+        "sample_measure_time": 0.000304292,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "remapped_qubits": false,
+        "active_input_qubits": [
+          0,
+          1
+        ],
+        "device": "CPU",
+        "time_taken": 0.00085525,
+        "measure_sampling": true,
+        "num_clbits": 4,
+        "max_memory_mb": 16384,
+        "input_qubit_map": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "num_qubits": 2,
+        "method": "stabilizer",
+        "required_memory_mb": 0,
+        "fusion": {
+          "enabled": false
+        }
+      },
+      "time_taken": 0.00085525
+    }
+  ],
+  "qobj_id": "",
+  "metadata": {
+    "time_taken_parameter_binding": 8.0666e-05,
+    "max_memory_mb": 16384,
+    "time_taken_execute": 0.000954958,
+    "omp_enabled": true,
+    "max_gpu_memory_mb": 0,
+    "parallel_experiments": 1
+  },
+  "time_taken": 0.002068042755126953
+}
