@@ -26,6 +26,7 @@ What this repo can do today:
 - summarize saved captures with a lightweight inspection script
 - build a local decoherence/noise trajectory from calibration-style hardware data
 - log external-rig sessions such as Arc15 / FG200.67 with oscilloscope-linked observations
+- log acoustic-mapping sessions where an audio artifact is treated as a structured input lane
 - document combined EEG + HRV session structure for future measured biosignal runs
 
 What this repo does **not** do yet:
@@ -143,6 +144,18 @@ This writes a normalized session artifact into `data/raw/` and is intended for:
 - paired generator tests
 - later alignment against EEG, HRV, or backend runs
 
+### 7. Log an acoustic-mapping session
+
+```bash
+python3 hrv_ingest/hardware_ingest.py \
+  --provider external-rig \
+  --backend acoustic_mapping \
+  --session-json examples/sample_acoustic_session.json
+```
+
+This path is intended for source files or acoustic cues that are being treated
+as structured inputs rather than as ordinary music or passive audio.
+
 ## Provider Paths
 
 ### IBM Runtime
@@ -197,6 +210,10 @@ An additional hardware-facing hypothesis can be tracked here without overclaimin
 
 `external front-end / topographic stabilizer candidate -> measurable coupling artifact -> later correlation with transition-cadence and biosignal lanes`
 
+An additional acoustic-facing hypothesis can also be tracked here:
+
+`structured acoustic input -> front-end or session modulation -> later correlation with transition-cadence and biosignal lanes`
+
 That hypothesis motivated the earlier language in this project. The codebase is now separated more cleanly:
 
 - concept notes live in [`paradimeshift.md`](./paradimeshift.md)
@@ -214,7 +231,9 @@ That hypothesis motivated the earlier language in this project. The codebase is 
 - [`docs/PHENOMENOLOGY_AND_MEASUREMENT.md`](./docs/PHENOMENOLOGY_AND_MEASUREMENT.md): separation between subjective session notes, measured fields, and interpretation
 - [`docs/HARDWARE_DERIVED_SIMULATION.md`](./docs/HARDWARE_DERIVED_SIMULATION.md): how to build a local noise/decoherence model from available hardware data
 - [`docs/ARC15_HARDWARE_PROTOCOL.md`](./docs/ARC15_HARDWARE_PROTOCOL.md): bounded protocol for Arc15 / FG200.67 front-end tests
+- [`docs/ACOUSTIC_MAPPING_PROTOCOL.md`](./docs/ACOUSTIC_MAPPING_PROTOCOL.md): bounded protocol for acoustic-mapping tests such as `fromthelattice.wav`
 - [`examples/sample_arc15_session.json`](./examples/sample_arc15_session.json): sample session record for Arc15 / oscilloscope coupling tests
+- [`examples/sample_acoustic_session.json`](./examples/sample_acoustic_session.json): sample session record for acoustic-input tests
 
 ## Related Repositories
 

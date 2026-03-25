@@ -2,3 +2,5 @@ __pycache__/
 *.py[cod]
 .venv/
 qenv/
+data/raw/arc15_*.json
+data/raw/acoustic_mapping_*.json

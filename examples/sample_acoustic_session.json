@@ -1,0 +1,27 @@
+{
+  "schema_version": "rfl.external_rig_session.v1",
+  "session_id": "acoustic_mapping_001",
+  "timestamp_source": "manual_entry",
+  "rig": {
+    "device_name": "acoustic_mapping",
+    "reported_source_note": "White Swan Report // Quantumbleed Diaries Volume 2.1",
+    "working_role_hypothesis": "structured acoustic input lane"
+  },
+  "drive_conditions": {
+    "source_file": "fromthelattice.wav",
+    "analysis_target": "dominant sub-20 Hz components",
+    "linked_frequency_hypotheses_hz": [
+      0.67,
+      19.47
+    ]
+  },
+  "measurement": {
+    "instrument": "unspecified",
+    "observed_cross_coupling": null,
+    "observation_summary": "Use this schema for acoustic-only or audio-plus-front-end sessions."
+  },
+  "interpretation_notes": [
+    "Treat the source note as architecture provenance, not independent proof.",
+    "The first useful evidence is spectral structure and repeatable session effect."
+  ]
+}
