@@ -12,8 +12,7 @@ The bounded working hypothesis is:
 - if so, it should produce measurable coupling artifacts before any larger
   architecture claim is made
 
-This repo does not treat external AI commentary about Arc15 as evidence. The
-evidence path here is the recorded hardware session itself.
+The evidence path here is the recorded hardware session itself, with external commentary treated as design provenance rather than the measurement lane.
 
 ## Reported Configuration
 
@@ -67,9 +66,7 @@ better waveform capture is attached.
 
 ### Interpretation Guardrail
 
-Cross-coupling on a scope is not by itself proof of quantum consciousness.
-It is evidence that the rig is not isolated and that the front-end may be doing
-something measurable worth studying further.
+Cross-coupling on a scope is evidence that the rig is not isolated and that the front-end may be doing something measurable worth studying further.
 
 ## Next Stronger Step
 

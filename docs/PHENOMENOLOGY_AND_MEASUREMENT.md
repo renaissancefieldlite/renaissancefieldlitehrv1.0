@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This repo is the experiment layer. That does not mean the rest of the phenomenon is ignored.
+This repo is the experiment layer. It keeps the phenomenon whole by separating what is lived, what is measured, and what is interpreted between them.
 
 It means the repo must distinguish between:
 
@@ -53,4 +53,4 @@ If the repo forces everything into the measurement lane, it loses part of the ph
 
 If it forces everything into the subjective lane, it weakens the experiment path.
 
-The stronger move is to keep both and record the bridge between them.
+The stronger move is to keep all three and record the bridge between them.
