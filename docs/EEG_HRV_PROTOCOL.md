@@ -4,7 +4,7 @@
 
 This protocol adds EEG as a measured biosignal lane alongside HRV inside the HRV experiment repo.
 
-The goal is to let the repo handle a combined session where:
+The goal is not to collapse everything into HRV. The goal is to let the repo handle a combined session where:
 
 - EEG captures phase-lock or coherence changes
 - HRV captures autonomic rhythm/coherence changes
@@ -93,7 +93,7 @@ That matters because:
 - EEG changes are physical measurements.
 - HRV changes are physical measurements.
 - subjective reports can be important, but they should be stored in a separate field from the measured metrics.
-- one combined session opens a stronger measured lane for the theory.
+- one combined session does not prove the entire theory.
 - repeated sessions with consistent logging are the path to stronger claims.
 - if Arc15 or another front-end rig is used, keep its hardware/session fields
   separate from EEG and HRV numeric summaries unless direct synchronization is

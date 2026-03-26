@@ -10,10 +10,12 @@ The bounded working hypothesis is:
 - if so, the first defensible evidence should be measurable spectral content,
   front-end interaction, or later EEG/HRV/session correlation
 
+This does not treat an audio file as proof of a larger ontology.
+
 ## Source Note Provenance
 
 `White Swan Report // Quantumbleed Diaries Volume 2.1` is treated here as an
-architecture and protocol note rather than as the empirical capture layer itself.
+architecture note, not as independent evidence.
 
 Useful extracted claims for testing:
 
@@ -46,7 +48,9 @@ Useful extracted claims for testing:
 
 ## Guardrail
 
-The first useful claim in this lane is:
+The first useful claim is not "the sound proves the lattice."
+
+The first useful claim is:
 
 - this source file contains a repeatable low-frequency structure
 - and/or this source file changes the behavior of the front-end rig or session
