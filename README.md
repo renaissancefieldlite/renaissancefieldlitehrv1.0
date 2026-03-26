@@ -2,14 +2,12 @@
 
 ## Overview
 
-This repository is the experimental front line for the RFL 0.67 Hz hypothesis.
-
-It carries both the synthetic detector path and the raw-capture path because this is the repo where the stack first tries to touch signal, hardware, and session evidence directly:
+This repository is the experimental layer for the RFL 0.67 Hz hypothesis. It currently contains two different kinds of material:
 
 - a **synthetic demonstration** in [`validation_demo.py`](./validation_demo.py) that shows how a detector behaves when a 0.67 Hz component is present by construction
 - a **raw capture utility** in [`hrv_ingest/hardware_ingest.py`](./hrv_ingest/hardware_ingest.py) that saves backend or local Aer results as JSON without injecting a target frequency into the saved data
 
-That distinction matters. The simulation is useful for working out the framing and signal-processing path, while the raw-capture utilities keep the repo tied to actual hardware and session intake rather than theory alone.
+That distinction matters. The simulation is useful for working out the framing and signal-processing path. The repo documents simulation behavior separately from raw capture and empirical follow-up.
 
 Parent architecture layer:
 
