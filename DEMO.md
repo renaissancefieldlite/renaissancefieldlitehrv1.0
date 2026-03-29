@@ -2,7 +2,8 @@
 
 ## Two Different Workflows Live Here
 
-This repository has two separate workflows that should not be conflated.
+HRV1.0 contains two core workflows that the later experiment stack depends on.
+They do different jobs and need to stay distinct.
 
 ### 1. Synthetic detector sketch
 
@@ -20,15 +21,11 @@ What it does:
 
 What it is for:
 
-- testing the framing
-- visualizing the difference between an older HRV-centered story and the current machine-telemetry-centered hypothesis
-- showing what the detector will report when the target component is already in the data
-
-What it does **not** prove:
-
-- that a real backend emits an intrinsic 0.67 Hz rhythm
-- that the target frequency exists in hardware without being planted
-- that simulator success implies physical confirmation
+- working out the detector path
+- visualizing the shift from the older HRV-control story to the
+  machine-telemetry-first framing
+- showing what the detector stack reports when the target component is already
+  in the source data
 
 ### 2. Raw backend capture
 
@@ -50,7 +47,7 @@ What it does:
 - saves raw backend results to `data/raw/`
 - preserves the backend output without injecting a target-band sinusoid into the saved JSON
 - wraps new captures in a shared schema so provider-specific payloads are easier to compare later
-- provides the starting point for real downstream analysis
+- provides the raw capture lane the rest of the stack builds on
 
 Optional Braket local run:
 
@@ -93,14 +90,16 @@ python3 hrv_ingest/hardware_ingest.py --provider ibm --backend <backend_name>
 python3 analysis/summarize_capture.py data/raw/ibmq_<backend_name>_*.json
 ```
 
-This is the earliest stage where the repo moves from concept demonstration toward empirical capture.
+This is the point where the repo moves from detector framing into actual backend
+capture.
 
-## Interpretation Guardrails
+## How To Read The Workflows
 
-- A local Aer result is a software execution artifact.
-- A synthetic detector hit is expected if the target band was explicitly present in the synthetic source.
-- A hardware claim needs repeated raw captures and separate analysis of non-injected data.
-- This repo is strongest when it draws a hard line between concept framing and evidence.
+- the detector workflow defines what the search target looks like
+- the raw capture workflow saves backend output without planting that target in
+  the saved file
+- both workflows are part of the foundation layer, but they are doing different
+  jobs
 
 ## Files Produced
 
@@ -129,12 +128,53 @@ Interpret as:
 - raw capture artifacts
 - candidate inputs for later, non-injected analysis
 
+### `repeated_capture.py`
+
+Produces:
+
+- `data/batches/<provider>_<backend>_<label>_<timestamp>.json`
+- optional sidecar scrape report
+  `data/batches/<provider>_<backend>_<label>_<timestamp>_job_ids.json`
+
+Interpret as:
+
+- repeated-batch manifests
+- the clean handoff into comparison reports
+- live job-id tracking while backend runs are still in flight
+
+## Repeated Batch Workflow
+
+Run:
+
+```bash
+python3 hrv_ingest/repeated_capture.py \
+  --provider ibm \
+  --backend ibm_fez \
+  --repeats 10 \
+  --circuits 1 \
+  --shots 32 \
+  --label baseline_10 \
+  --condition baseline \
+  --scrape-job-ids
+```
+
+Then compare:
+
+```bash
+python3 analysis/compare_capture_batches.py \
+  --captures "data/batches/aer_ibmq_qasm_simulator_baseline_*.json" "data/batches/ibm_ibm_fez_baseline_*.json" \
+  --output data/derived_noise/experiment_baseline_comparison.json
+```
+
+This is the publishable bridge between the Step 2 proxy and the later
+experiment repos.
+
 ## Bottom Line
 
-The repo now has a cleaner split:
+HRV1.0 matters because both workflows are foundational:
 
-- `validation_demo.py` shows how the detector behaves in a synthetic scenario
-- `hardware_ingest.py` captures raw backend output
-- `analysis/summarize_capture.py` gives a grounded readout of what was actually saved
+- `validation_demo.py` defines the detector path
+- `hardware_ingest.py` defines the backend capture path
+- `analysis/summarize_capture.py` reads back what was actually saved
 
-That is the correct technical reading of the current project.
+That is the groundwork the later experiment stack expands from.

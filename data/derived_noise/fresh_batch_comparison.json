@@ -1,0 +1,128 @@
+{
+  "schema_version": "rfl.capture_comparison.v1",
+  "hardware_profile": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/derived_noise/sample_noise_profile.json",
+  "step2_reference": {
+    "mean_coherence_proxy": 0.9553175210847371,
+    "mean_short_window_coherence": 0.9823794452339145,
+    "mean_session_stability": 0.976366014174089
+  },
+  "capture_count": 5,
+  "providers": {
+    "aer": {
+      "count": 3,
+      "mean_target_subspace_probability": 1.0,
+      "std_target_subspace_probability": 0.0,
+      "mean_off_target_probability": 0.0,
+      "mean_bell_imbalance": 0.16666666666666666,
+      "delta_vs_step2_proxy": 0.04468247891526289,
+      "captures": [
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/aer_simulator_1774588281851.json",
+          "provider": "aer",
+          "backend_name": "aer_simulator",
+          "created_at_utc": "2026-03-27T05:11:21.851163+00:00",
+          "job_id": null,
+          "shots": 32,
+          "zero_probability": 0.5625,
+          "three_probability": 0.4375,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.125,
+          "counts": {
+            "0x3": 14,
+            "0x0": 18
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/aer_simulator_1774588281853.json",
+          "provider": "aer",
+          "backend_name": "aer_simulator",
+          "created_at_utc": "2026-03-27T05:11:21.853831+00:00",
+          "job_id": null,
+          "shots": 32,
+          "zero_probability": 0.3125,
+          "three_probability": 0.6875,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.375,
+          "counts": {
+            "0x0": 10,
+            "0x3": 22
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/aer_simulator_1774588281857.json",
+          "provider": "aer",
+          "backend_name": "aer_simulator",
+          "created_at_utc": "2026-03-27T05:11:21.857627+00:00",
+          "job_id": null,
+          "shots": 32,
+          "zero_probability": 0.5,
+          "three_probability": 0.5,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.0,
+          "counts": {
+            "0x3": 16,
+            "0x0": 16
+          }
+        }
+      ]
+    },
+    "ibm": {
+      "count": 2,
+      "mean_target_subspace_probability": 0.984375,
+      "std_target_subspace_probability": 0.015625,
+      "mean_off_target_probability": 0.015625,
+      "mean_bell_imbalance": 0.078125,
+      "delta_vs_step2_proxy": 0.02905747891526289,
+      "captures": [
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/ibmq_ibm_fez_1774587931.json",
+          "provider": "ibm",
+          "backend_name": "ibm_fez",
+          "created_at_utc": "2026-03-27T05:05:31.068593+00:00",
+          "job_id": "d73104uqdfbc73d2pd5g",
+          "shots": 32,
+          "zero_probability": 0.46875,
+          "three_probability": 0.5,
+          "target_subspace_probability": 0.96875,
+          "off_target_probability": 0.03125,
+          "bell_imbalance": 0.03125,
+          "counts": {
+            "11": 16,
+            "00": 15,
+            "10": 1
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/ibmq_ibm_fez_1774587942.json",
+          "provider": "ibm",
+          "backend_name": "ibm_fez",
+          "created_at_utc": "2026-03-27T05:05:42.496564+00:00",
+          "job_id": "d73107uqdfbc73d2pda0",
+          "shots": 32,
+          "zero_probability": 0.5625,
+          "three_probability": 0.4375,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.125,
+          "counts": {
+            "00": 18,
+            "11": 14
+          }
+        }
+      ]
+    }
+  },
+  "comparisons": [
+    {
+      "group_a": "aer",
+      "group_b": "ibm",
+      "t_stat": 1.0,
+      "p_value": 0.49999999999999956,
+      "effect_size": 1.0,
+      "delta_mean": 0.015625
+    }
+  ]
+}

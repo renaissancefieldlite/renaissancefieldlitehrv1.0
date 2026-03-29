@@ -1,0 +1,99 @@
+{
+  "schema_version": "rfl.capture.v1",
+  "provider": "aer",
+  "backend_name": "aer_simulator",
+  "capture_mode": "local_simulator",
+  "created_at_utc": "2026-03-27T05:23:12.822428+00:00",
+  "circuits_requested": 1,
+  "shots": 32,
+  "raw_result": {
+    "backend_name": "aer_simulator",
+    "backend_version": "0.17.2",
+    "date": "2026-03-26T23:23:12.822298",
+    "header": null,
+    "job_id": "66fbb707-4f91-4107-9682-c766b51e3c22",
+    "status": "COMPLETED",
+    "success": true,
+    "results": [
+      {
+        "shots": 32,
+        "success": true,
+        "data": {
+          "counts": {
+            "0x3": 20,
+            "0x0": 12
+          }
+        },
+        "meas_level": 2,
+        "header": {
+          "creg_sizes": [
+            [
+              "meas",
+              2
+            ]
+          ],
+          "global_phase": 0.0,
+          "memory_slots": 2,
+          "n_qubits": 2,
+          "name": "circuit-53",
+          "qreg_sizes": [
+            [
+              "q",
+              2
+            ]
+          ],
+          "metadata": {}
+        },
+        "status": "DONE",
+        "seed_simulator": 2937919533,
+        "metadata": {
+          "num_bind_params": 1,
+          "runtime_parameter_bind": false,
+          "parallel_state_update": 10,
+          "parallel_shots": 1,
+          "sample_measure_time": 1.0375e-05,
+          "noise": "ideal",
+          "batched_shots_optimization": false,
+          "remapped_qubits": false,
+          "active_input_qubits": [
+            0,
+            1
+          ],
+          "device": "CPU",
+          "time_taken": 0.001475792,
+          "measure_sampling": true,
+          "num_clbits": 2,
+          "max_memory_mb": 16384,
+          "input_qubit_map": [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "num_qubits": 2,
+          "method": "stabilizer",
+          "required_memory_mb": 0,
+          "fusion": {
+            "enabled": false
+          }
+        },
+        "time_taken": 0.001475792
+      }
+    ],
+    "qobj_id": "",
+    "metadata": {
+      "time_taken_parameter_binding": 7.209e-06,
+      "max_memory_mb": 16384,
+      "time_taken_execute": 0.001516167,
+      "omp_enabled": true,
+      "max_gpu_memory_mb": 0,
+      "parallel_experiments": 1
+    },
+    "time_taken": 0.001825094223022461
+  },
+  "result_format": "qiskit_result_dict"
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "rfl.capture.v1",
+  "provider": "ibm",
+  "backend_name": "ibm_fez",
+  "capture_mode": "cloud_backend",
+  "created_at_utc": "2026-03-26T16:10:47.587671+00:00",
+  "circuits_requested": 1,
+  "shots": 32,
+  "raw_result": {
+    "result_format": "qiskit_sampler_v2",
+    "experiments": [
+      {
+        "experiment_index": 0,
+        "measurement_counts": {
+          "11": 15,
+          "00": 17
+        },
+        "measurement_probabilities": {
+          "11": 0.46875,
+          "00": 0.53125
+        },
+        "sample_bitstrings": [
+          "11",
+          "11",
+          "00",
+          "00",
+          "11",
+          "00",
+          "00",
+          "00",
+          "11",
+          "00"
+        ],
+        "pub_metadata": {
+          "circuit_metadata": {}
+        }
+      }
+    ],
+    "result_metadata": {
+      "version": 2,
+      "execution": "{'execution_spans': ExecutionSpans([DoubleSliceSpan(<start='2026-03-26 16:10:44', stop='2026-03-26 16:10:45', size=32>)])}"
+    }
+  },
+  "result_format": "qiskit_sampler_v2",
+  "job_id": "d72lkohamkec73a1es9g",
+  "runtime_config": {
+    "channel": "ibm_quantum_platform",
+    "instance": null,
+    "url": "https://cloud.ibm.com"
+  }
+}

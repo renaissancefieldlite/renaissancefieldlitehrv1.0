@@ -1,0 +1,407 @@
+{
+  "schema_version": "rfl.capture_comparison.v1",
+  "hardware_profile": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/derived_noise/sample_noise_profile.json",
+  "step2_reference": {
+    "mean_coherence_proxy": 0.9553175210847371,
+    "mean_short_window_coherence": 0.9823794452339145,
+    "mean_session_stability": 0.976366014174089
+  },
+  "capture_count": 20,
+  "providers": {
+    "aer": {
+      "count": 10,
+      "mean_target_subspace_probability": 1.0,
+      "std_target_subspace_probability": 0.0,
+      "mean_off_target_probability": 0.0,
+      "mean_bell_imbalance": 0.13125,
+      "delta_vs_step2_proxy": 0.04468247891526289,
+      "captures": [
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/aer_simulator_1774588992803691000.json",
+          "provider": "aer",
+          "backend_name": "aer_simulator",
+          "created_at_utc": "2026-03-27T05:23:12.803673+00:00",
+          "job_id": null,
+          "shots": 32,
+          "zero_probability": 0.46875,
+          "three_probability": 0.53125,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.0625,
+          "counts": {
+            "0x0": 15,
+            "0x3": 17
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/aer_simulator_1774588992808143000.json",
+          "provider": "aer",
+          "backend_name": "aer_simulator",
+          "created_at_utc": "2026-03-27T05:23:12.808135+00:00",
+          "job_id": null,
+          "shots": 32,
+          "zero_probability": 0.46875,
+          "three_probability": 0.53125,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.0625,
+          "counts": {
+            "0x0": 15,
+            "0x3": 17
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/aer_simulator_1774588992809421000.json",
+          "provider": "aer",
+          "backend_name": "aer_simulator",
+          "created_at_utc": "2026-03-27T05:23:12.809410+00:00",
+          "job_id": null,
+          "shots": 32,
+          "zero_probability": 0.5625,
+          "three_probability": 0.4375,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.125,
+          "counts": {
+            "0x3": 14,
+            "0x0": 18
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/aer_simulator_1774588992813726000.json",
+          "provider": "aer",
+          "backend_name": "aer_simulator",
+          "created_at_utc": "2026-03-27T05:23:12.813556+00:00",
+          "job_id": null,
+          "shots": 32,
+          "zero_probability": 0.46875,
+          "three_probability": 0.53125,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.0625,
+          "counts": {
+            "0x3": 17,
+            "0x0": 15
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/aer_simulator_1774588992817127000.json",
+          "provider": "aer",
+          "backend_name": "aer_simulator",
+          "created_at_utc": "2026-03-27T05:23:12.817118+00:00",
+          "job_id": null,
+          "shots": 32,
+          "zero_probability": 0.46875,
+          "three_probability": 0.53125,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.0625,
+          "counts": {
+            "0x0": 15,
+            "0x3": 17
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/aer_simulator_1774588992818551000.json",
+          "provider": "aer",
+          "backend_name": "aer_simulator",
+          "created_at_utc": "2026-03-27T05:23:12.818539+00:00",
+          "job_id": null,
+          "shots": 32,
+          "zero_probability": 0.4375,
+          "three_probability": 0.5625,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.125,
+          "counts": {
+            "0x3": 18,
+            "0x0": 14
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/aer_simulator_1774588992820162000.json",
+          "provider": "aer",
+          "backend_name": "aer_simulator",
+          "created_at_utc": "2026-03-27T05:23:12.820157+00:00",
+          "job_id": null,
+          "shots": 32,
+          "zero_probability": 0.4375,
+          "three_probability": 0.5625,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.125,
+          "counts": {
+            "0x3": 18,
+            "0x0": 14
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/aer_simulator_1774588992822439000.json",
+          "provider": "aer",
+          "backend_name": "aer_simulator",
+          "created_at_utc": "2026-03-27T05:23:12.822428+00:00",
+          "job_id": null,
+          "shots": 32,
+          "zero_probability": 0.375,
+          "three_probability": 0.625,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.25,
+          "counts": {
+            "0x3": 20,
+            "0x0": 12
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/aer_simulator_1774588992825801000.json",
+          "provider": "aer",
+          "backend_name": "aer_simulator",
+          "created_at_utc": "2026-03-27T05:23:12.825795+00:00",
+          "job_id": null,
+          "shots": 32,
+          "zero_probability": 0.40625,
+          "three_probability": 0.59375,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.1875,
+          "counts": {
+            "0x3": 19,
+            "0x0": 13
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/aer_simulator_1774588992827282000.json",
+          "provider": "aer",
+          "backend_name": "aer_simulator",
+          "created_at_utc": "2026-03-27T05:23:12.827277+00:00",
+          "job_id": null,
+          "shots": 32,
+          "zero_probability": 0.625,
+          "three_probability": 0.375,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.25,
+          "counts": {
+            "0x3": 12,
+            "0x0": 20
+          }
+        }
+      ]
+    },
+    "ibm": {
+      "count": 10,
+      "mean_target_subspace_probability": 0.96875,
+      "std_target_subspace_probability": 0.03125,
+      "mean_off_target_probability": 0.03125,
+      "mean_bell_imbalance": 0.2,
+      "delta_vs_step2_proxy": 0.013432478915262891,
+      "captures": [
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/ibmq_ibm_fez_1774588733290.json",
+          "provider": "ibm",
+          "backend_name": "ibm_fez",
+          "created_at_utc": "2026-03-27T05:18:53.290985+00:00",
+          "job_id": "d7316dhamkec73a1rslg",
+          "shots": 32,
+          "zero_probability": 0.65625,
+          "three_probability": 0.34375,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.3125,
+          "counts": {
+            "00": 21,
+            "11": 11
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/ibmq_ibm_fez_1774588835868.json",
+          "provider": "ibm",
+          "backend_name": "ibm_fez",
+          "created_at_utc": "2026-03-27T05:20:35.868531+00:00",
+          "job_id": "d7316gmv3u3c73ej7o0g",
+          "shots": 32,
+          "zero_probability": 0.3125,
+          "three_probability": 0.6875,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.375,
+          "counts": {
+            "11": 22,
+            "00": 10
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/ibmq_ibm_fez_1774588850325.json",
+          "provider": "ibm",
+          "backend_name": "ibm_fez",
+          "created_at_utc": "2026-03-27T05:20:50.325825+00:00",
+          "job_id": "d7317b6v3u3c73ej7p10",
+          "shots": 32,
+          "zero_probability": 0.34375,
+          "three_probability": 0.625,
+          "target_subspace_probability": 0.96875,
+          "off_target_probability": 0.03125,
+          "bell_imbalance": 0.28125,
+          "counts": {
+            "11": 20,
+            "00": 11,
+            "01": 1
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/ibmq_ibm_fez_1774588905409.json",
+          "provider": "ibm",
+          "backend_name": "ibm_fez",
+          "created_at_utc": "2026-03-27T05:21:45.409280+00:00",
+          "job_id": "d7317dmv3u3c73ej7p40",
+          "shots": 32,
+          "zero_probability": 0.5625,
+          "three_probability": 0.40625,
+          "target_subspace_probability": 0.96875,
+          "off_target_probability": 0.03125,
+          "bell_imbalance": 0.15625,
+          "counts": {
+            "00": 18,
+            "11": 13,
+            "01": 1
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/ibmq_ibm_fez_1774588934385.json",
+          "provider": "ibm",
+          "backend_name": "ibm_fez",
+          "created_at_utc": "2026-03-27T05:22:14.385792+00:00",
+          "job_id": "d7317rcscmvs73acits0",
+          "shots": 32,
+          "zero_probability": 0.65625,
+          "three_probability": 0.3125,
+          "target_subspace_probability": 0.96875,
+          "off_target_probability": 0.03125,
+          "bell_imbalance": 0.34375,
+          "counts": {
+            "00": 21,
+            "11": 10,
+            "01": 1
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/ibmq_ibm_fez_1774588945528.json",
+          "provider": "ibm",
+          "backend_name": "ibm_fez",
+          "created_at_utc": "2026-03-27T05:22:25.528237+00:00",
+          "job_id": "d73182hamkec73a1rup0",
+          "shots": 32,
+          "zero_probability": 0.59375,
+          "three_probability": 0.34375,
+          "target_subspace_probability": 0.9375,
+          "off_target_probability": 0.0625,
+          "bell_imbalance": 0.25,
+          "counts": {
+            "00": 19,
+            "11": 11,
+            "01": 2
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/ibmq_ibm_fez_1774588958521.json",
+          "provider": "ibm",
+          "backend_name": "ibm_fez",
+          "created_at_utc": "2026-03-27T05:22:38.521723+00:00",
+          "job_id": "d731861amkec73a1rus0",
+          "shots": 32,
+          "zero_probability": 0.53125,
+          "three_probability": 0.46875,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.0625,
+          "counts": {
+            "00": 17,
+            "11": 15
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/ibmq_ibm_fez_1774589072512.json",
+          "provider": "ibm",
+          "backend_name": "ibm_fez",
+          "created_at_utc": "2026-03-27T05:24:32.512935+00:00",
+          "job_id": "d73188mqdfbc73d2pn70",
+          "shots": 32,
+          "zero_probability": 0.46875,
+          "three_probability": 0.4375,
+          "target_subspace_probability": 0.90625,
+          "off_target_probability": 0.09375,
+          "bell_imbalance": 0.03125,
+          "counts": {
+            "11": 14,
+            "00": 15,
+            "01": 3
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/ibmq_ibm_fez_1774589087693.json",
+          "provider": "ibm",
+          "backend_name": "ibm_fez",
+          "created_at_utc": "2026-03-27T05:24:47.693398+00:00",
+          "job_id": "d73195ev3u3c73ej7rlg",
+          "shots": 32,
+          "zero_probability": 0.59375,
+          "three_probability": 0.40625,
+          "target_subspace_probability": 1.0,
+          "off_target_probability": 0.0,
+          "bell_imbalance": 0.1875,
+          "counts": {
+            "00": 19,
+            "11": 13
+          }
+        },
+        {
+          "path": "/Users/renaissancefieldlite1.0/Documents/Playground/renaissancefieldlitehrv1.0/data/raw/ibmq_ibm_fez_1774589102257.json",
+          "provider": "ibm",
+          "backend_name": "ibm_fez",
+          "created_at_utc": "2026-03-27T05:25:02.257512+00:00",
+          "job_id": "d731996v3u3c73ej7rs0",
+          "shots": 32,
+          "zero_probability": 0.46875,
+          "three_probability": 0.46875,
+          "target_subspace_probability": 0.9375,
+          "off_target_probability": 0.0625,
+          "bell_imbalance": 0.0,
+          "counts": {
+            "00": 15,
+            "11": 15,
+            "10": 2
+          }
+        }
+      ]
+    }
+  },
+  "comparisons": [
+    {
+      "metric": "target_subspace_probability",
+      "group_a": "aer",
+      "group_b": "ibm",
+      "t_stat": 2.9999999999999996,
+      "p_value": 0.014956363910414203,
+      "effect_size": 1.3416407864998738,
+      "delta_mean": 0.03125
+    },
+    {
+      "metric": "off_target_probability",
+      "group_a": "aer",
+      "group_b": "ibm",
+      "t_stat": -2.9999999999999996,
+      "p_value": 0.014956363910414203,
+      "effect_size": -1.3416407864998738,
+      "delta_mean": -0.03125
+    },
+    {
+      "metric": "bell_imbalance",
+      "group_a": "aer",
+      "group_b": "ibm",
+      "t_stat": -1.4135646916977938,
+      "p_value": 0.1791983955701433,
+      "effect_size": -0.6321653482459599,
+      "delta_mean": -0.06875
+    }
+  ]
+}
