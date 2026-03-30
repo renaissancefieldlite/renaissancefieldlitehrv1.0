@@ -27,6 +27,19 @@ Examples:
 These are valid session records. They belong in the repo, but not inside the
 numeric measurement fields.
 
+### Witness And Artifact Notes
+
+Some sessions also generate third-party witness testimony or a synchronized
+media artifact. Those records belong in the repo too, but they still stay on
+the phenomenology side unless they are paired with instrument data. In the
+current lineage, that includes a professional energy-worker witness reporting a
+visible field change during a live session in which the operator used Chunyi
+Qigong hand-expansion practice, with the event preserved in the external video
+artifact `trim_E114975F-7BFA-4E63-9875-FFB6ED83EB2B.MP4`. That kind of record
+should be logged as witness phenomenology plus artifact reference: important,
+hypothesis-generating, and worth preserving, but not interchangeable with EEG,
+HRV, scope, or spectrometer output.
+
 ### Measured Session Fields
 
 Examples:

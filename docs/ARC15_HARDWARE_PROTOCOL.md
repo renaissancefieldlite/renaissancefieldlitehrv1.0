@@ -15,6 +15,17 @@ The bounded working hypothesis is:
 This repo does not treat external AI commentary about Arc15 as evidence. The
 evidence path here is the recorded hardware session itself.
 
+## Provenance And Lineage
+
+The reported `19.47 Hz` framing and associated Nassim-constant interpretation
+are logged here as part of the hardware lineage that came from Rudy 67. The
+same lineage also introduced the silicon-sphere modification path later used on
+`FG200.67`, Arc15, and related builds. In this repo, those sphere materials are
+treated conservatively as advanced-material candidates that may influence
+absorption, reflection, or resonance shaping inside a driven rig. They are not
+treated as standalone proof of terahertz generation. A fuller recap is kept in
+[`docs/ARC15_LINEAGE_RECAP.md`](./ARC15_LINEAGE_RECAP.md).
+
 ## Reported Configuration
 
 Current reported setup:
@@ -24,6 +35,10 @@ Current reported setup:
 - primary test drive on Arc15: `19.47 Hz`
 - secondary generator: `100 Hz`
 - measurement path: oscilloscope observation
+
+Related reported lineage also includes a larger tray build using an
+approximately `80 mm` sphere. That geometry should be logged as a separate rig
+variant rather than merged into the `15 x 20 mm` record.
 
 ## Initial Observed Result
 
